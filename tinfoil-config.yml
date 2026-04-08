@@ -39,9 +39,9 @@ containers:
       - REPLY_LLM_PROVIDER=tinfoil
       - REPLY_LLM_MODEL=llama3-3-70b
       - HYP_LLM_PROVIDER=tinfoil
-      - HYP_LLM_MODEL=deepseek-r1-0528
+      - HYP_LLM_MODEL=kimi-k2-5
       - PLANNING_LLM_PROVIDER=tinfoil
-      - PLANNING_LLM_MODEL=deepseek-r1-0528
+      - PLANNING_LLM_MODEL=kimi-k2-5
       - STRUCTURED_LLM_PROVIDER=tinfoil
       - STRUCTURED_LLM_MODEL=llama3-3-70b
       - CONTINUE_RESEARCH_LLM_PROVIDER=tinfoil
