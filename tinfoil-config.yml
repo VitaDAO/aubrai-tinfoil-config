@@ -16,7 +16,10 @@ containers:
   - name: aubrai
     # Image digest is pinned by CI (tinfoil-build.yml).
     # DO NOT edit this line manually — updated automatically on each deploy.
-    image: "ghcr.io/biosagent/bios:tinfoil-latest@sha256:REPLACE_WITH_DIGEST_VIA_CI"
+    image: "ghcr.io/vitadao/aubrai-server:latest@sha256:REPLACE_WITH_DIGEST_VIA_CI"
+    registry:
+      username: DobrinAlexandru
+      password_secret: GHCR_TOKEN
 
     env:
       # Non-sensitive config — safe to commit
@@ -68,9 +71,9 @@ containers:
       - ALLOWED_ORIGINS           # Comma-separated: https://your-frontend.com
 
       # Database
-      - SUPABASE_URL
-      - SUPABASE_ANON_KEY
-      - SUPABASE_SERVICE_KEY
+      - AUBRAI_SUPABASE_URL
+      - AUBRAI_SUPABASE_ANON_KEY
+      - AUBRAI_SUPABASE_SERVICE_KEY
 
       # File storage
       - AWS_ACCESS_KEY_ID

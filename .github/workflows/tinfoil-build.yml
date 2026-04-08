@@ -17,6 +17,35 @@ jobs:
     steps:
       - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8
 
+      - name: Login to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Pin latest image digest in config
+        run: |
+          DIGEST=$(docker manifest inspect ghcr.io/vitadao/aubrai-server:latest \
+            --verbose 2>/dev/null | \
+            python3 -c "
+          import sys, json
+          data = json.load(sys.stdin)
+          if isinstance(data, list):
+              d = data[0].get('Descriptor', {}).get('digest', '')
+          else:
+              d = data.get('Descriptor', {}).get('digest', '') or \
+                  data.get('config', {}).get('digest', '')
+          print(d)
+          ")
+          if [ -z "$DIGEST" ]; then
+            echo "ERROR: Could not fetch image digest for ghcr.io/vitadao/aubrai-server:latest"
+            exit 1
+          fi
+          echo "Pinning digest: $DIGEST"
+          sed -i "s|image: \"ghcr.io/vitadao/aubrai-server:latest@sha256:.*\"|image: \"ghcr.io/vitadao/aubrai-server:latest@${DIGEST}\"|" tinfoil-config.yml
+          grep "image:" tinfoil-config.yml
+
       - uses: tinfoilsh/pri-build-action@5d450a7f30904866efc401e24484b935b7ed52dd  # v0.6.1
         with:
           config-file: ${{ github.workspace }}/tinfoil-config.yml
