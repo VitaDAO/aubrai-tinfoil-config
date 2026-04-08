@@ -8,7 +8,7 @@
 #   The workflow pins the image digest here and creates a signed pre-release.
 #   Tinfoil detects the new tag and deploys automatically.
 
-cvm-version: "1"
+cvm-version: 0.7.5
 cpus: 8
 memory: 32768  # 32 GB — LaTeX/Pandoc compilation is memory-intensive
 
