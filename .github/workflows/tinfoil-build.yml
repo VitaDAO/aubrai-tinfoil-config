@@ -18,6 +18,6 @@ jobs:
 
       - uses: tinfoilsh/pri-build-action@5d450a7f30904866efc401e24484b935b7ed52dd
         with:
-          config-file: tinfoil-config.yml
+          config-file: config.yml
           github-token: ${{ secrets.GITHUB_TOKEN }}
           prerelease: "true"
