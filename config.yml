@@ -16,7 +16,7 @@ containers:
   - name: aubrai
     # Image digest is pinned by CI (tinfoil-build.yml).
     # DO NOT edit this line manually — updated automatically on each deploy.
-    image: "ghcr.io/biosagent/bios:tinfoil-latest@sha256:REPLACE_WITH_DIGEST_VIA_CI"
+    image: "ghcr.io/vitadao/aubrai-server:tinfoil-latest@sha256:REPLACE_WITH_DIGEST_VIA_CI"
 
     env:
       # Non-sensitive config — safe to commit
@@ -51,6 +51,8 @@ containers:
       - PAPER_GEN_LLM_MODEL=llama3-3-70b
       - CLARIFICATION_LLM_PROVIDER=tinfoil
       - CLARIFICATION_LLM_MODEL=llama3-3-70b
+      # HPKE public key — attestation anchor so vita app can encrypt to this enclave
+      - HPKE_PUBLIC_KEY=pBbUKMAOC20RbFqfbqNcmqUwb8TGUbpxw4jS4OOj+QY=
 
     secrets:
       # All values below are encrypted — only decryptable inside the enclave.
@@ -79,6 +81,9 @@ containers:
       - S3_BUCKET
       - S3_ENDPOINT               # Optional: non-AWS S3 endpoint
 
+      # HPKE private key — sealed, only released to attested enclave
+      - HPKE_PRIVATE_KEY
+
       # Literature & analysis agents
       - OPENSCHOLAR_API_URL
       - BIO_LIT_AGENT_API_URL
@@ -95,6 +100,5 @@ shim:
     - /api/clarification
     - /api/files
     - /api/auth
-    - /api/x402
-    - /api/b402
+    - /api/chat-private
     - /ws
