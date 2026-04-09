@@ -17,6 +17,9 @@ containers:
     # Image digest is pinned by CI (tinfoil-build.yml).
     # DO NOT edit this line manually — updated automatically on each deploy.
     image: "ghcr.io/vitadao/aubrai-server:tinfoil-v1.0.29@sha256:e850079667fd570d39f14c94da2fcc34147009d1adad4762a3a150b5dcfd69e2"
+    registry:
+      username: DobrinAlexandru
+      password_secret: GHCR_TOKEN
 
     env:
       # Non-sensitive config — safe to commit
@@ -57,6 +60,9 @@ containers:
     secrets:
       # All values below are encrypted — only decryptable inside the enclave.
       # Add each in the Tinfoil Dashboard > Secrets before first deploy.
+
+      # GHCR registry credentials
+      - GHCR_TOKEN
 
       # Tinfoil inference
       - TINFOIL_API_KEY
