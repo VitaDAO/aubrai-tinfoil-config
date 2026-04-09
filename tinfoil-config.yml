@@ -94,6 +94,7 @@ shim:
   paths:
     - /health
     - /api/chat
+    - /api/chat-private
     - /api/deep-research
     - /api/clarification
     - /api/files
