@@ -61,6 +61,9 @@ containers:
       # All values below are encrypted — only decryptable inside the enclave.
       # Add each in the Tinfoil Dashboard > Secrets before first deploy.
 
+      # GHCR registry credentials
+      - GHCR_TOKEN
+
       # Tinfoil inference
       - TINFOIL_API_KEY
 
@@ -89,6 +92,7 @@ containers:
 
       # Literature & analysis agents
       - OPENSCHOLAR_API_URL
+      - OPENSCHOLAR_API_KEY
       - BIO_LIT_AGENT_API_URL
       - BIO_LIT_AGENT_API_KEY
       - DATA_ANALYSIS_API_URL
@@ -104,6 +108,4 @@ shim:
     - /api/clarification
     - /api/files
     - /api/auth
-    - /api/x402
-    - /api/b402
     - /ws

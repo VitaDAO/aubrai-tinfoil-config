@@ -92,6 +92,7 @@ containers:
 
       # Literature & analysis agents
       - OPENSCHOLAR_API_URL
+      - OPENSCHOLAR_API_KEY
       - BIO_LIT_AGENT_API_URL
       - BIO_LIT_AGENT_API_KEY
       - DATA_ANALYSIS_API_URL
