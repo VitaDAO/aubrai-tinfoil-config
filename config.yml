@@ -70,9 +70,9 @@ containers:
       - ALLOWED_ORIGINS           # Comma-separated: https://your-frontend.com
 
       # Database
-      - SUPABASE_URL
-      - SUPABASE_ANON_KEY
-      - SUPABASE_SERVICE_KEY
+      - AUBRAI_SUPABASE_URL
+      - AUBRAI_SUPABASE_ANON_KEY
+      - AUBRAI_SUPABASE_SERVICE_KEY
 
       # File storage
       - AWS_ACCESS_KEY_ID
