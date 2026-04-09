@@ -85,8 +85,9 @@ containers:
       - S3_BUCKET
       - S3_ENDPOINT               # Optional: non-AWS S3 endpoint
 
-      # HPKE private key — sealed, only released to attested enclave
+      # HPKE key pair — private is sealed, public is the attestation anchor
       - HPKE_PRIVATE_KEY
+      - HPKE_PUBLIC_KEY
 
       # Literature & analysis agents
       - OPENSCHOLAR_API_URL
