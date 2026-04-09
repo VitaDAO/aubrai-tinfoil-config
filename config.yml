@@ -42,8 +42,6 @@ containers:
       - HYP_LLM_MODEL=deepseek-r1-0528
       - PLANNING_LLM_PROVIDER=tinfoil
       - PLANNING_LLM_MODEL=deepseek-r1-0528
-      - STRUCTURED_LLM_PROVIDER=tinfoil
-      - STRUCTURED_LLM_MODEL=llama3-3-70b
       - CONTINUE_RESEARCH_LLM_PROVIDER=tinfoil
       - CONTINUE_RESEARCH_LLM_MODEL=llama3-3-70b
       - REFLECTION_LLM_PROVIDER=tinfoil
@@ -108,4 +106,4 @@ shim:
     - /api/files
     - /api/auth
     - /api/chat-private
-    - /ws
+    - /api/ws

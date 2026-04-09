@@ -42,8 +42,6 @@ containers:
       - HYP_LLM_MODEL=glm-5-1
       - PLANNING_LLM_PROVIDER=tinfoil
       - PLANNING_LLM_MODEL=glm-5-1
-      - STRUCTURED_LLM_PROVIDER=tinfoil
-      - STRUCTURED_LLM_MODEL=glm-5-1
       - CONTINUE_RESEARCH_LLM_PROVIDER=tinfoil
       - CONTINUE_RESEARCH_LLM_MODEL=glm-5-1
       - REFLECTION_LLM_PROVIDER=tinfoil
@@ -108,4 +106,4 @@ shim:
     - /api/clarification
     - /api/files
     - /api/auth
-    - /ws
+    - /api/ws
