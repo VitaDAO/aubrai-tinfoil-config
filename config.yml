@@ -16,7 +16,7 @@ containers:
   - name: aubrai
     # Image digest is pinned by CI (tinfoil-build.yml).
     # DO NOT edit this line manually — updated automatically on each deploy.
-    image: "ghcr.io/vitadao/aubrai-server:tinfoil-latest@sha256:REPLACE_WITH_DIGEST_VIA_CI"
+    image: "ghcr.io/vitadao/aubrai-server:tinfoil-v1.0.29@sha256:e850079667fd570d39f14c94da2fcc34147009d1adad4762a3a150b5dcfd69e2"
 
     env:
       # Non-sensitive config — safe to commit
