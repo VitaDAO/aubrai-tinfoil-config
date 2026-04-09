@@ -37,21 +37,21 @@ containers:
       - ENABLE_LLM_FALLBACK=false
       # Route ALL LLM calls through Tinfoil inference (private, HPKE-encrypted)
       - REPLY_LLM_PROVIDER=tinfoil
-      - REPLY_LLM_MODEL=llama3-3-70b
+      - REPLY_LLM_MODEL=glm-5-1
       - HYP_LLM_PROVIDER=tinfoil
-      - HYP_LLM_MODEL=deepseek-r1-0528
+      - HYP_LLM_MODEL=glm-5-1
       - PLANNING_LLM_PROVIDER=tinfoil
-      - PLANNING_LLM_MODEL=deepseek-r1-0528
+      - PLANNING_LLM_MODEL=glm-5-1
       - CONTINUE_RESEARCH_LLM_PROVIDER=tinfoil
-      - CONTINUE_RESEARCH_LLM_MODEL=llama3-3-70b
+      - CONTINUE_RESEARCH_LLM_MODEL=glm-5-1
       - REFLECTION_LLM_PROVIDER=tinfoil
-      - REFLECTION_LLM_MODEL=llama3-3-70b
+      - REFLECTION_LLM_MODEL=glm-5-1
       - DISCOVERY_LLM_PROVIDER=tinfoil
-      - DISCOVERY_LLM_MODEL=llama3-3-70b
+      - DISCOVERY_LLM_MODEL=glm-5-1
       - PAPER_GEN_LLM_PROVIDER=tinfoil
-      - PAPER_GEN_LLM_MODEL=llama3-3-70b
+      - PAPER_GEN_LLM_MODEL=glm-5-1
       - CLARIFICATION_LLM_PROVIDER=tinfoil
-      - CLARIFICATION_LLM_MODEL=llama3-3-70b
+      - CLARIFICATION_LLM_MODEL=glm-5-1
       # HPKE public key — attestation anchor so vita app can encrypt to this enclave
       - HPKE_PUBLIC_KEY=pBbUKMAOC20RbFqfbqNcmqUwb8TGUbpxw4jS4OOj+QY=
 
