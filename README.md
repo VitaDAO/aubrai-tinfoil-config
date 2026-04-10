@@ -11,7 +11,7 @@ This repo contains everything needed for independent verification:
 | `tinfoil-config.yml` | Full deployment manifest: image digest, resource limits, secret names, exposed HTTP paths |
 | `.github/workflows/tinfoil-build.yml` | Build workflow that generates sigstore attestations on every release tag |
 
-Source code lives in the private `biosagent/bios` repo. The container image is public at `ghcr.io/biosagent/bios`.
+Source code lives in the private `VitaDAO/aubrai-server` repo. The container image is public at `ghcr.io/vitadao/aubrai-server`.
 
 ## Privacy model
 
@@ -27,9 +27,9 @@ Source code lives in the private `biosagent/bios` repo. The container image is p
 ```bash
 cosign verify-attestation \
   --type 'https://slsa.dev/provenance/v1' \
-  --certificate-identity-regexp 'https://github\.com/biosagent/aubrai-tinfoil-config/' \
+  --certificate-identity-regexp 'https://github\.com/VitaDAO/aubrai-tinfoil-config/' \
   --certificate-oidc-issuer 'https://token.actions.githubusercontent.com' \
-  ghcr.io/biosagent/bios@sha256:<digest>
+  ghcr.io/vitadao/aubrai-server@sha256:<digest>
 ```
 
 The digest is pinned in `tinfoil-config.yml`. Every release tag creates a GitHub pre-release with the sigstore attestation bundle.
