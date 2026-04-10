@@ -16,8 +16,6 @@ Source code lives in the private `VitaDAO/aubrai-server-privacy` repo. The conta
 ## Privacy model
 
 - All LLM inference is HPKE-encrypted to Tinfoil hardware enclaves (AMD SEV-SNP / Intel TDX)
-- No fallback to Anthropic/Google (`ENABLE_LLM_FALLBACK=false`)
-- Edison disabled by default (`EDISON_ENABLED=false`) — no research data leaves to external services
 - All DB content encrypted with XChaCha20-Poly1305 — Supabase sees only ciphertext
 - All secrets are sealed — only released into a correctly-attested enclave
 - Exposed paths are explicitly allowlisted — `/admin/queues` and all internal paths are blocked
