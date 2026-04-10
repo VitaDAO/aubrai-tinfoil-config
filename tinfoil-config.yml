@@ -101,6 +101,7 @@ shim:
   upstream-port: 3000
   paths:
     - /health
+    - /enclave/attestation
     - /api/enclave-key
     - /api/chat
     - /api/chat-private
