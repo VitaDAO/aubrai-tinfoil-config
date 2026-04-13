@@ -109,14 +109,4 @@ shim:
   paths:
     - /health
     - /enclave/attestation
-    - /api/enclave-key
-    - /api/chat
-    - /api/chat-private
-    - /api/deep-research
-    - /api/clarification
-    - /api/files
-    - /api/auth
-    - /api/chat/encrypted
-    - /api/chat/encrypted/status
-    - /api/literature/encrypted
-    - /api/ws
+    - /api/*
