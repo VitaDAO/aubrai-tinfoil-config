@@ -117,5 +117,6 @@ shim:
     - /api/files
     - /api/auth
     - /api/chat/encrypted
+    - /api/chat/encrypted/status
     - /api/literature/encrypted
     - /api/ws
