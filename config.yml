@@ -25,7 +25,8 @@ containers:
       # Non-sensitive config — safe to commit
       - NODE_ENV=production
       - PORT=3000
-      - USE_JOB_QUEUE=false
+      - USE_JOB_QUEUE=true
+      - REDIS_URL=redis://localhost:6379
       - CHARACTER_FILE=characters/aubrai.json
       - STORAGE_PROVIDER=s3
       # Private embeddings via Tinfoil (768-dim nomic-embed-text, HPKE-encrypted)
@@ -97,6 +98,10 @@ containers:
       - DATA_ANALYSIS_API_URL
       - DATA_ANALYSIS_API_KEY
 
+  - name: redis
+    image: "redis:7-alpine"
+    command: ["redis-server", "--appendonly", "no", "--maxmemory", "512mb", "--maxmemory-policy", "noeviction"]
+
 shim:
   upstream-port: 3000
   paths:
@@ -108,5 +113,6 @@ shim:
     - /api/files
     - /api/auth
     - /api/chat-private
+    - /api/chat/encrypted
     - /api/literature/encrypted
     - /api/ws

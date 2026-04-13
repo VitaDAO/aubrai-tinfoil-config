@@ -25,7 +25,8 @@ containers:
       # Non-sensitive config — safe to commit
       - NODE_ENV=production
       - PORT=3000
-      - USE_JOB_QUEUE=false
+      - USE_JOB_QUEUE=true
+      - REDIS_URL=redis://localhost:6379
       - CHARACTER_FILE=characters/aubrai.json
       - STORAGE_PROVIDER=s3
       # Private embeddings via Tinfoil (768-dim nomic-embed-text, HPKE-encrypted)
@@ -97,6 +98,12 @@ containers:
       - DATA_ANALYSIS_API_URL
       - DATA_ANALYSIS_API_KEY
 
+  - name: redis
+    image: "redis:7-alpine"
+    # No registry needed — public image
+    # Runs inside the CVM: plaintext job data never leaves the enclave
+    command: ["redis-server", "--appendonly", "no", "--maxmemory", "512mb", "--maxmemory-policy", "noeviction"]
+
 shim:
   upstream-port: 3000
   paths:
@@ -109,5 +116,6 @@ shim:
     - /api/clarification
     - /api/files
     - /api/auth
+    - /api/chat/encrypted
     - /api/literature/encrypted
     - /api/ws
