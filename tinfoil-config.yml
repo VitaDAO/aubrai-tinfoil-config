@@ -109,4 +109,5 @@ shim:
     - /api/clarification
     - /api/files
     - /api/auth
+    - /api/literature/encrypted
     - /api/ws
