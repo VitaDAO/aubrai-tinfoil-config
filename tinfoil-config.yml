@@ -188,6 +188,9 @@ containers:
 
   - name: searxng
     image: "ghcr.io/vitadao/aubrai-searxng:tinfoil-v1.0.50@sha256:c9f84632f1837076649d3f379c9d9c7c1cb80b38b6c109bac6698accb5ce50db"
+    registry:
+      username: DobrinAlexandru
+      password_secret: GHCR_TOKEN
 
 shim:
   upstream-port: 3000

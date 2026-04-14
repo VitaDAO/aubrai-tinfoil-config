@@ -11,7 +11,7 @@ This repo contains everything needed for independent verification:
 | `tinfoil-config.yml` | Full deployment manifest: image digest, resource limits, secret names, exposed HTTP paths |
 | `.github/workflows/tinfoil-build.yml` | Build workflow that generates sigstore attestations on every release tag |
 
-Source code lives in the private `VitaDAO/aubrai-server-privacy` repo. The container image is public at `ghcr.io/vitadao/aubrai-server`.
+Source code lives in the private `VitaDAO/aubrai-server-privacy` repo. Deployment images are pulled from GHCR and may be private when `registry` credentials are provided in `tinfoil-config.yml`.
 
 ## Privacy model
 
