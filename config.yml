@@ -27,6 +27,7 @@ containers:
       - PORT: "3000"
       - USE_JOB_QUEUE: "true"
       - REDIS_URL: "redis://localhost:6379"
+      - LITERATURE_AGENT_URL: "http://localhost:8000"
       - CHARACTER_FILE: "characters/aubrai.json"
       - STORAGE_PROVIDER: "s3"
       # Private embeddings via Tinfoil (768-dim nomic-embed-text, HPKE-encrypted)
@@ -159,9 +160,34 @@ containers:
       - DATA_ANALYSIS_API_URL
       - DATA_ANALYSIS_API_KEY
 
+  - name: literature-agent
+    image: "ghcr.io/vitadao/aubrai-server:tinfoil-v1.0.48@sha256:fed15b2f962338c418450304b1bdf278fc24e2c787f1e97b955ff62e10876a3e"
+    registry:
+      username: DobrinAlexandru
+      password_secret: GHCR_TOKEN
+    command: ["python3", "literature-agent/main.py"]
+    env:
+      - PORT: "8000"
+      - REDIS_URL: "redis://localhost:6379"
+      - PAPER_SEARCH_MCP_SEARXNG_URL: "http://localhost:8080"
+      - LITERATURE_AGENT_LLM_MODEL: "glm-5-1"
+      - LITERATURE_AGENT_PLANNER_MODEL: "glm-5-1"
+      - LITERATURE_AGENT_JOB_TTL_SECONDS: "86400"
+      - LITERATURE_AGENT_SYNTHESIS_TIMEOUT_SECONDS: "120"
+      - LITERATURE_AGENT_PLANNER_TIMEOUT_SECONDS: "60"
+      - LITERATURE_AGENT_DEEP_OUTLINE_TIMEOUT_SECONDS: "60"
+      - LITERATURE_AGENT_DEEP_SECTION_TIMEOUT_SECONDS: "90"
+      - LITERATURE_AGENT_DEEP_FINAL_TIMEOUT_SECONDS: "120"
+    secrets:
+      - GHCR_TOKEN
+      - TINFOIL_API_KEY
+
   - name: redis
-    image: "redis:7-alpine"
-    command: ["redis-server", "--appendonly", "no", "--maxmemory", "512mb", "--maxmemory-policy", "noeviction"]
+    image: "docker.io/redis:7-alpine@sha256:4bfd9eca23339865dc14fe75f6d9ae643f714924623978dd2798f1a673b08f43"
+    command: ["redis-server", "--appendonly", "yes", "--maxmemory", "512mb", "--maxmemory-policy", "noeviction"]
+
+  - name: searxng
+    image: "docker.io/searxng/searxng:latest@sha256:5c9a6960c9b5fff8de5daf41e72232b205debdc162665d35ea768823ef1177e5"
 
 shim:
   upstream-port: 3000
