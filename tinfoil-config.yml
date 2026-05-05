@@ -39,7 +39,7 @@ containers:
       - ENABLE_LLM_FALLBACK: "false"
       # Route ALL LLM calls through Tinfoil inference (private, HPKE-encrypted)
       - FAST_CHAT_LLM_PROVIDER: "tinfoil"
-      - FAST_CHAT_LLM_MODEL: "glm-5-1"
+      - FAST_CHAT_LLM_MODEL: "kimi-k2-6"
       - ORCHESTRATOR_LLM_PROVIDER: "tinfoil"
       - ORCHESTRATOR_LLM_MODEL: "glm-5-1"
       - REPLY_LLM_PROVIDER: "tinfoil"
@@ -142,7 +142,7 @@ containers:
       - MAX_AUTO_ITERATIONS: "5"
       - ENABLE_LLM_FALLBACK: "false"
       - FAST_CHAT_LLM_PROVIDER: "tinfoil"
-      - FAST_CHAT_LLM_MODEL: "glm-5-1"
+      - FAST_CHAT_LLM_MODEL: "kimi-k2-6"
       - ORCHESTRATOR_LLM_PROVIDER: "tinfoil"
       - ORCHESTRATOR_LLM_MODEL: "glm-5-1"
       - REPLY_LLM_PROVIDER: "tinfoil"
