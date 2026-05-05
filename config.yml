@@ -37,9 +37,9 @@ containers:
       - MAX_AUTO_ITERATIONS: "5"
       # Disable LLM fallback — no data leaves to Anthropic/Google on Tinfoil failure
       - ENABLE_LLM_FALLBACK: "false"
-      # Route ALL LLM calls through Tinfoil inference (private, HPKE-encrypted)
-      - FAST_CHAT_LLM_PROVIDER: "tinfoil"
-      - FAST_CHAT_LLM_MODEL: "kimi-k2-6"
+      # Fast chat is standard/non-private. Private and deep roles stay on Tinfoil.
+      - FAST_CHAT_LLM_PROVIDER: "sambanova"
+      - FAST_CHAT_LLM_MODEL: "MiniMax-M2.5"
       - ORCHESTRATOR_LLM_PROVIDER: "tinfoil"
       - ORCHESTRATOR_LLM_MODEL: "glm-5-1"
       - REPLY_LLM_PROVIDER: "tinfoil"
@@ -86,6 +86,7 @@ containers:
 
       # Tinfoil inference
       - TINFOIL_API_KEY
+      - SAMBANOVA_API_KEY
 
       # Encryption master key (XChaCha20-Poly1305 for DB/file encryption)
       - ENCRYPTION_MASTER_KEY     # openssl rand -hex 32
@@ -141,8 +142,8 @@ containers:
       - USE_RERANKING: "true"
       - MAX_AUTO_ITERATIONS: "5"
       - ENABLE_LLM_FALLBACK: "false"
-      - FAST_CHAT_LLM_PROVIDER: "tinfoil"
-      - FAST_CHAT_LLM_MODEL: "kimi-k2-6"
+      - FAST_CHAT_LLM_PROVIDER: "sambanova"
+      - FAST_CHAT_LLM_MODEL: "MiniMax-M2.5"
       - ORCHESTRATOR_LLM_PROVIDER: "tinfoil"
       - ORCHESTRATOR_LLM_MODEL: "glm-5-1"
       - REPLY_LLM_PROVIDER: "tinfoil"
@@ -179,6 +180,7 @@ containers:
     secrets:
       - GHCR_TOKEN
       - TINFOIL_API_KEY
+      - SAMBANOVA_API_KEY
       - ENCRYPTION_MASTER_KEY
       - BIOAGENTS_SECRET
       - AUTH_MODE
