@@ -29,6 +29,7 @@ containers:
       - LITERATURE_AGENT_URL: "http://localhost:8000"
       - CHARACTER_FILE: "characters/aubrai.json"
       - STORAGE_PROVIDER: "s3"
+      - DATA_DIR: "/tmp/aubrai-data"
       # Private embeddings via Tinfoil (768-dim nomic-embed-text, HPKE-encrypted)
       - EMBEDDING_PROVIDER: "tinfoil"
       - TEXT_EMBEDDING_MODEL: "nomic-embed-text"
@@ -123,6 +124,7 @@ containers:
       - REDIS_URL: "redis://localhost:6379"
       - CHARACTER_FILE: "characters/aubrai.json"
       - STORAGE_PROVIDER: "s3"
+      - DATA_DIR: "/tmp/aubrai-data"
       - EMBEDDING_PROVIDER: "tinfoil"
       - TEXT_EMBEDDING_MODEL: "nomic-embed-text"
       - USE_RERANKING: "true"
