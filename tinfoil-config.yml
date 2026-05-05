@@ -17,6 +17,9 @@ containers:
     # Image digest is pinned by CI (tinfoil-build.yml).
     # DO NOT edit this line manually — updated automatically on each deploy.
     image: "ghcr.io/vitadao/aubrai-server:tinfoil-v1.0.62@sha256:5e742e6f2d33cd1cc291c81da6c80f2dffe6a6af8fe158af3697f9c089892524"
+    registry:
+      username: DobrinAlexandru
+      password_secret: GHCR_TOKEN
     env:
       # Non-sensitive config — safe to commit
       - NODE_ENV: "production"
@@ -66,6 +69,9 @@ containers:
       # All values below are encrypted — only decryptable inside the enclave.
       # Add each in the Tinfoil Dashboard > Secrets before first deploy.
 
+      # GHCR registry credentials
+      - GHCR_TOKEN
+
       # Tinfoil inference
       - TINFOIL_API_KEY
 
@@ -105,6 +111,9 @@ containers:
 
   - name: worker
     image: "ghcr.io/vitadao/aubrai-server:tinfoil-v1.0.62@sha256:5e742e6f2d33cd1cc291c81da6c80f2dffe6a6af8fe158af3697f9c089892524"
+    registry:
+      username: DobrinAlexandru
+      password_secret: GHCR_TOKEN
     command: ["bun", "src/worker.ts"]
 
     env:
@@ -144,6 +153,7 @@ containers:
       - HPKE_PUBLIC_KEY: "pBbUKMAOC20RbFqfbqNcmqUwb8TGUbpxw4jS4OOj+QY="
 
     secrets:
+      - GHCR_TOKEN
       - TINFOIL_API_KEY
       - ENCRYPTION_MASTER_KEY
       - BIOAGENTS_SECRET
@@ -170,6 +180,9 @@ containers:
 
   - name: literature-agent
     image: "ghcr.io/vitadao/aubrai-server:tinfoil-v1.0.62@sha256:5e742e6f2d33cd1cc291c81da6c80f2dffe6a6af8fe158af3697f9c089892524"
+    registry:
+      username: DobrinAlexandru
+      password_secret: GHCR_TOKEN
     command: ["python3", "literature-agent/main.py"]
     env:
       - PORT: "8000"
@@ -184,6 +197,7 @@ containers:
       - LITERATURE_AGENT_DEEP_SECTION_TIMEOUT_SECONDS: "90"
       - LITERATURE_AGENT_DEEP_FINAL_TIMEOUT_SECONDS: "120"
     secrets:
+      - GHCR_TOKEN
       - TINFOIL_API_KEY
 
   - name: redis
@@ -192,6 +206,9 @@ containers:
 
   - name: searxng
     image: "ghcr.io/vitadao/aubrai-agentic-searxng:tinfoil-v1.0.62@sha256:278236e4d7c1aca9333f0c5b95ef6459b6c10cf6c898582ae95cd89d0c55fbb9"
+    registry:
+      username: DobrinAlexandru
+      password_secret: GHCR_TOKEN
 
 shim:
   upstream-port: 3000
