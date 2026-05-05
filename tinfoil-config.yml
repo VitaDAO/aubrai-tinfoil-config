@@ -214,6 +214,14 @@ containers:
 shim:
   upstream-port: 3000
   paths:
+    - /
+    - /app
+    - /chat
+    - /research
+    - /login
+    - /_next/*
+    - /assets/*
+    - /favicon.ico
     - /health
     - /enclave/attestation
     - /api/*
