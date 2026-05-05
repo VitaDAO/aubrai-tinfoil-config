@@ -16,7 +16,7 @@ containers:
   - name: aubrai
     # Image digest is pinned by CI (tinfoil-build.yml).
     # DO NOT edit this line manually — updated automatically on each deploy.
-    image: "ghcr.io/vitadao/aubrai-agentic:tinfoil-v1.0.60@sha256:bd572fc8e352199d189a132053a6703bf0fdaa9be945fa830f1a6ceef6018d02"
+    image: "ghcr.io/vitadao/aubrai-server:tinfoil-v1.0.62@sha256:5e742e6f2d33cd1cc291c81da6c80f2dffe6a6af8fe158af3697f9c089892524"
     env:
       # Non-sensitive config — safe to commit
       - NODE_ENV: "production"
@@ -104,7 +104,7 @@ containers:
       - DATA_ANALYSIS_API_KEY
 
   - name: worker
-    image: "ghcr.io/vitadao/aubrai-agentic:tinfoil-v1.0.60@sha256:bd572fc8e352199d189a132053a6703bf0fdaa9be945fa830f1a6ceef6018d02"
+    image: "ghcr.io/vitadao/aubrai-server:tinfoil-v1.0.62@sha256:5e742e6f2d33cd1cc291c81da6c80f2dffe6a6af8fe158af3697f9c089892524"
     command: ["bun", "src/worker.ts"]
 
     env:
@@ -169,7 +169,7 @@ containers:
       - DATA_ANALYSIS_API_KEY
 
   - name: literature-agent
-    image: "ghcr.io/vitadao/aubrai-agentic:tinfoil-v1.0.60@sha256:bd572fc8e352199d189a132053a6703bf0fdaa9be945fa830f1a6ceef6018d02"
+    image: "ghcr.io/vitadao/aubrai-server:tinfoil-v1.0.62@sha256:5e742e6f2d33cd1cc291c81da6c80f2dffe6a6af8fe158af3697f9c089892524"
     command: ["python3", "literature-agent/main.py"]
     env:
       - PORT: "8000"
@@ -191,7 +191,7 @@ containers:
     command: ["redis-server", "--appendonly", "yes", "--maxmemory", "512mb", "--maxmemory-policy", "noeviction"]
 
   - name: searxng
-    image: "ghcr.io/vitadao/aubrai-agentic-searxng:tinfoil-v1.0.60@sha256:a904b379b5e0bdebffc6f5d820fbb9205aebd4ddf365d75e729635693c1d7674"
+    image: "ghcr.io/vitadao/aubrai-agentic-searxng:tinfoil-v1.0.62@sha256:278236e4d7c1aca9333f0c5b95ef6459b6c10cf6c898582ae95cd89d0c55fbb9"
 
 shim:
   upstream-port: 3000
