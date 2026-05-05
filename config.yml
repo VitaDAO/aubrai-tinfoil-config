@@ -95,6 +95,7 @@ containers:
       - BIOAGENTS_SECRET          # JWT signing key: openssl rand -hex 32
       - AUTH_MODE                 # 'jwt' for production
       - ALLOWED_ORIGINS           # Comma-separated: https://your-frontend.com
+      - AUBRAI_PRIVY_APP_ID       # Public Privy app id, exposed to Next as NEXT_PUBLIC_PRIVY_APP_ID
 
       # Database
       - AUBRAI_SUPABASE_URL
@@ -185,6 +186,7 @@ containers:
       - BIOAGENTS_SECRET
       - AUTH_MODE
       - ALLOWED_ORIGINS
+      - AUBRAI_PRIVY_APP_ID
       - AUBRAI_SUPABASE_URL
       - AUBRAI_SUPABASE_ANON_KEY
       - AUBRAI_SUPABASE_SERVICE_KEY
