@@ -265,3 +265,6 @@ shim:
     - /health
     - /enclave/attestation
     - /api/*
+    - /agents/literature/*
+    - /agents/analysis/*
+    - /deep-research/*
