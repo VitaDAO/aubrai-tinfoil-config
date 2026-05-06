@@ -77,6 +77,7 @@ containers:
       - PRIVATE_CHAT_LLM_MODEL: "glm-5-1"
       - PRIVATE_RESEARCH_LLM_PROVIDER: "tinfoil"
       - PRIVATE_RESEARCH_LLM_MODEL: "glm-5-1"
+      - PRIVATE_LITERATURE_ENABLED: "true"
       - PRIVATE_MODE_ALLOW_EXTERNAL_TOOLS: "false"
       - PRIVATE_MODE_REQUIRE_ENCRYPTED_STORAGE: "true"
       # HPKE public key — attestation anchor so vita app can encrypt to this enclave
@@ -187,6 +188,7 @@ containers:
       - PRIVATE_CHAT_LLM_MODEL: "glm-5-1"
       - PRIVATE_RESEARCH_LLM_PROVIDER: "tinfoil"
       - PRIVATE_RESEARCH_LLM_MODEL: "glm-5-1"
+      - PRIVATE_LITERATURE_ENABLED: "true"
       - PRIVATE_MODE_ALLOW_EXTERNAL_TOOLS: "false"
       - PRIVATE_MODE_REQUIRE_ENCRYPTED_STORAGE: "true"
       - HPKE_PUBLIC_KEY: "pBbUKMAOC20RbFqfbqNcmqUwb8TGUbpxw4jS4OOj+QY="
