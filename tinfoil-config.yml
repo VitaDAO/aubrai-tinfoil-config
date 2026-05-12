@@ -44,7 +44,7 @@ containers:
       - ENABLE_LLM_FALLBACK: "false"
       # Fast chat is standard/non-private. Private and deep roles stay on Tinfoil.
       - FAST_CHAT_LLM_PROVIDER: "sambanova"
-      - FAST_CHAT_LLM_MODEL: "MiniMax-M2.5"
+      - FAST_CHAT_LLM_MODEL: "MiniMax-M2.7"
       - ORCHESTRATOR_LLM_PROVIDER: "tinfoil"
       - ORCHESTRATOR_LLM_MODEL: "glm-5-1"
       - REPLY_LLM_PROVIDER: "tinfoil"
@@ -158,7 +158,7 @@ containers:
       - MAX_AUTO_ITERATIONS: "5"
       - ENABLE_LLM_FALLBACK: "false"
       - FAST_CHAT_LLM_PROVIDER: "sambanova"
-      - FAST_CHAT_LLM_MODEL: "MiniMax-M2.5"
+      - FAST_CHAT_LLM_MODEL: "MiniMax-M2.7"
       - ORCHESTRATOR_LLM_PROVIDER: "tinfoil"
       - ORCHESTRATOR_LLM_MODEL: "glm-5-1"
       - REPLY_LLM_PROVIDER: "tinfoil"
