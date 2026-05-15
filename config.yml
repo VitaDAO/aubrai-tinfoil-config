@@ -29,6 +29,9 @@ containers:
       - AUTH_MODE: "jwt"
       - DB_BACKEND: "supabase"
       - ALLOWED_ORIGINS: "https://staging.aubr.ai"
+      - SENTRY_ENVIRONMENT: "staging"
+      - SENTRY_RELEASE: "v1.0.99"
+      - SENTRY_TRACES_SAMPLE_RATE: "0.05"
       - USE_JOB_QUEUE: "true"
       - REDIS_URL: "redis://localhost:6379"
       - LITERATURE_AGENT_URL: "http://localhost:8000"
@@ -134,6 +137,7 @@ containers:
       - BIO_LIT_AGENT_API_KEY
       - DATA_ANALYSIS_API_URL
       - DATA_ANALYSIS_API_KEY
+      - AUBRAI_SENTRY_DSN
 
   - name: worker
     image: "ghcr.io/vitadao/aubrai-server:tinfoil-v1.0.98@sha256:a0cf4b0aa8e15fee0e11f9d420e94832e54cbd0f9bc9998f3d09b009cb0feee3"
@@ -150,6 +154,9 @@ containers:
       - AUTH_MODE: "jwt"
       - DB_BACKEND: "supabase"
       - ALLOWED_ORIGINS: "https://staging.aubr.ai"
+      - SENTRY_ENVIRONMENT: "staging"
+      - SENTRY_RELEASE: "v1.0.99"
+      - SENTRY_TRACES_SAMPLE_RATE: "0.05"
       - USE_JOB_QUEUE: "true"
       - REDIS_URL: "redis://localhost:6379"
       - SENTRY_DSN: "https://929bbce961b77486a72a2528448b9d7f@o4511338800021504.ingest.de.sentry.io/4511393586217040"
@@ -229,6 +236,7 @@ containers:
       - BIO_LIT_AGENT_API_KEY
       - DATA_ANALYSIS_API_URL
       - DATA_ANALYSIS_API_KEY
+      - AUBRAI_SENTRY_DSN
 
   - name: literature-agent
     image: "ghcr.io/vitadao/aubrai-server:tinfoil-v1.0.98@sha256:a0cf4b0aa8e15fee0e11f9d420e94832e54cbd0f9bc9998f3d09b009cb0feee3"
