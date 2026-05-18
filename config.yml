@@ -30,7 +30,7 @@ containers:
       - DB_BACKEND: "supabase"
       - ALLOWED_ORIGINS: "https://staging.aubr.ai"
       - SENTRY_ENVIRONMENT: "staging"
-      - SENTRY_RELEASE: "v1.0.102"
+      - SENTRY_RELEASE: "v1.0.104"
       - SENTRY_TRACES_SAMPLE_RATE: "0.05"
       - SENTRY_SMOKE_ENABLED: "true"
       - USE_JOB_QUEUE: "true"
@@ -154,7 +154,7 @@ containers:
       - DB_BACKEND: "supabase"
       - ALLOWED_ORIGINS: "https://staging.aubr.ai"
       - SENTRY_ENVIRONMENT: "staging"
-      - SENTRY_RELEASE: "v1.0.102"
+      - SENTRY_RELEASE: "v1.0.104"
       - SENTRY_TRACES_SAMPLE_RATE: "0.05"
       - USE_JOB_QUEUE: "true"
       - REDIS_URL: "redis://localhost:6379"
@@ -255,7 +255,7 @@ containers:
       - LITERATURE_AGENT_DEEP_SECTION_TIMEOUT_SECONDS: "90"
       - LITERATURE_AGENT_DEEP_FINAL_TIMEOUT_SECONDS: "120"
       - SENTRY_ENVIRONMENT: "staging"
-      - SENTRY_RELEASE: "v1.0.102"
+      - SENTRY_RELEASE: "v1.0.104"
       - SENTRY_TRACES_SAMPLE_RATE: "0.05"
     secrets:
       - GHCR_TOKEN
