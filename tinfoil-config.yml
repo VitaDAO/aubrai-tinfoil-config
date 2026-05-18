@@ -79,9 +79,9 @@ containers:
       # AUBRAI_SUPABASE_*; private routes write encrypted payloads to
       # AUBRAI_PRIVACY_SUPABASE_*.
       - PRIVATE_CHAT_LLM_PROVIDER: "tinfoil"
-      - PRIVATE_CHAT_LLM_MODEL: "glm-5-1"
+      - PRIVATE_CHAT_LLM_MODEL: "gemma4-31b"
       - PRIVATE_RESEARCH_LLM_PROVIDER: "tinfoil"
-      - PRIVATE_RESEARCH_LLM_MODEL: "glm-5-1"
+      - PRIVATE_RESEARCH_LLM_MODEL: "gemma4-31b"
       - PRIVATE_LITERATURE_ENABLED: "true"
       - PRIVATE_MODE_ALLOW_EXTERNAL_TOOLS: "false"
       - PRIVATE_MODE_REQUIRE_ENCRYPTED_STORAGE: "true"
@@ -195,9 +195,9 @@ containers:
       - CLARIFICATION_LLM_MODEL: "glm-5-1"
       - SEARXNG_URL: "http://localhost:8080"
       - PRIVATE_CHAT_LLM_PROVIDER: "tinfoil"
-      - PRIVATE_CHAT_LLM_MODEL: "glm-5-1"
+      - PRIVATE_CHAT_LLM_MODEL: "gemma4-31b"
       - PRIVATE_RESEARCH_LLM_PROVIDER: "tinfoil"
-      - PRIVATE_RESEARCH_LLM_MODEL: "glm-5-1"
+      - PRIVATE_RESEARCH_LLM_MODEL: "gemma4-31b"
       - PRIVATE_LITERATURE_ENABLED: "true"
       - PRIVATE_MODE_ALLOW_EXTERNAL_TOOLS: "false"
       - PRIVATE_MODE_REQUIRE_ENCRYPTED_STORAGE: "true"
