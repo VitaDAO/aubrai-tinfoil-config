@@ -51,8 +51,8 @@ containers:
       # Fast chat is standard/non-private. Private and deep roles stay on Tinfoil.
       - FAST_CHAT_LLM_PROVIDER: "google"
       - FAST_CHAT_LLM_MODEL: "gemini-3.5-flash"
-      - ORCHESTRATOR_LLM_PROVIDER: "google"
-      - ORCHESTRATOR_LLM_MODEL: "gemini-3.5-flash"
+      - ORCHESTRATOR_LLM_PROVIDER: "anthropic"
+      - ORCHESTRATOR_LLM_MODEL: "claude-opus-4-7"
       - REPLY_LLM_PROVIDER: "google"
       - REPLY_LLM_MODEL: "gemini-3.5-flash"
       - HYPOTHESIS_LLM_PROVIDER: "google"
@@ -63,8 +63,8 @@ containers:
       - PLANNING_LLM_MODEL: "gemini-3.5-flash"
       - SUBAGENT_LLM_PROVIDER: "google"
       - SUBAGENT_LLM_MODEL: "gemini-3.5-flash"
-      - DEEP_RESEARCH_ORCHESTRATOR_PROVIDER: "google"
-      - DEEP_RESEARCH_ORCHESTRATOR_MODEL: "gemini-3.5-flash"
+      - DEEP_RESEARCH_ORCHESTRATOR_PROVIDER: "anthropic"
+      - DEEP_RESEARCH_ORCHESTRATOR_MODEL: "claude-opus-4-7"
       - CONTINUE_RESEARCH_LLM_PROVIDER: "google"
       - CONTINUE_RESEARCH_LLM_MODEL: "gemini-3.5-flash"
       - REFLECTION_LLM_PROVIDER: "google"
@@ -100,6 +100,7 @@ containers:
       - TINFOIL_API_KEY
       - SAMBANOVA_API_KEY
       - GOOGLE_API_KEY
+      - ANTHROPIC_API_KEY
 
       # Encryption master key (XChaCha20-Poly1305 for DB/file encryption)
       - ENCRYPTION_MASTER_KEY     # openssl rand -hex 32
@@ -172,8 +173,8 @@ containers:
       - ENABLE_LLM_FALLBACK: "false"
       - FAST_CHAT_LLM_PROVIDER: "google"
       - FAST_CHAT_LLM_MODEL: "gemini-3.5-flash"
-      - ORCHESTRATOR_LLM_PROVIDER: "google"
-      - ORCHESTRATOR_LLM_MODEL: "gemini-3.5-flash"
+      - ORCHESTRATOR_LLM_PROVIDER: "anthropic"
+      - ORCHESTRATOR_LLM_MODEL: "claude-opus-4-7"
       - REPLY_LLM_PROVIDER: "google"
       - REPLY_LLM_MODEL: "gemini-3.5-flash"
       - HYPOTHESIS_LLM_PROVIDER: "google"
@@ -184,8 +185,8 @@ containers:
       - PLANNING_LLM_MODEL: "gemini-3.5-flash"
       - SUBAGENT_LLM_PROVIDER: "google"
       - SUBAGENT_LLM_MODEL: "gemini-3.5-flash"
-      - DEEP_RESEARCH_ORCHESTRATOR_PROVIDER: "google"
-      - DEEP_RESEARCH_ORCHESTRATOR_MODEL: "gemini-3.5-flash"
+      - DEEP_RESEARCH_ORCHESTRATOR_PROVIDER: "anthropic"
+      - DEEP_RESEARCH_ORCHESTRATOR_MODEL: "claude-opus-4-7"
       - CONTINUE_RESEARCH_LLM_PROVIDER: "google"
       - CONTINUE_RESEARCH_LLM_MODEL: "gemini-3.5-flash"
       - REFLECTION_LLM_PROVIDER: "google"
@@ -211,6 +212,7 @@ containers:
       - TINFOIL_API_KEY
       - SAMBANOVA_API_KEY
       - GOOGLE_API_KEY
+      - ANTHROPIC_API_KEY
       - ENCRYPTION_MASTER_KEY
       - BIOAGENTS_SECRET
       - AUBRAI_PRIVY_APP_ID
