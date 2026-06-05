@@ -145,6 +145,9 @@ containers:
       - DATA_ANALYSIS_API_URL
       - DATA_ANALYSIS_API_KEY
       - AUBRAI_SENTRY_DSN
+      - NVIDIA_API_KEY
+      - ZILLIZ_URI
+      - ZILLIZ_TOKEN
 
   - name: worker
     image: "ghcr.io/vitadao/aubrai-server:tinfoil-v2026.06.05.2321@sha256:03eb153820ac4e82431aea6a8701cd3cc3338fa8d800407c9f1a1f09be953476"
