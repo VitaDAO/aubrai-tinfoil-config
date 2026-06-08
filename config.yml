@@ -41,6 +41,7 @@ containers:
       - CORPUS_RUNTIME_INGEST_MAX_PAGES: "0"
       - CORPUS_RUNTIME_INGEST_MAX_FIGS: "0"
       - CORPUS_RUNTIME_INGEST_MAX_TABLES: "0"
+      - CORPUS_DIAGNOSTIC_ENABLED: "true"
       - SENTRY_DSN: "https://929bbce961b77486a72a2528448b9d7f@o4511338800021504.ingest.de.sentry.io/4511393586217040"
       - CHARACTER_FILE: "characters/aubrai.json"
       - STORAGE_PROVIDER: "s3"
