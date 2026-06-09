@@ -30,7 +30,7 @@ containers:
       - DB_BACKEND: "supabase"
       - ALLOWED_ORIGINS: "https://staging.aubr.ai,https://chat.aubr.ai"
       - SENTRY_ENVIRONMENT: "production"
-      - SENTRY_RELEASE: "v2026.06.08.2110"
+      - SENTRY_RELEASE: "v2026.06.09.1108"
       - SENTRY_TRACES_SAMPLE_RATE: "0.05"
       - SENTRY_SMOKE_ENABLED: "true"
       - USE_JOB_QUEUE: "true"
@@ -166,7 +166,7 @@ containers:
       - DB_BACKEND: "supabase"
       - ALLOWED_ORIGINS: "https://staging.aubr.ai,https://chat.aubr.ai"
       - SENTRY_ENVIRONMENT: "production"
-      - SENTRY_RELEASE: "v2026.06.08.2110"
+      - SENTRY_RELEASE: "v2026.06.09.1108"
       - SENTRY_TRACES_SAMPLE_RATE: "0.05"
       - USE_JOB_QUEUE: "true"
       - REDIS_URL: "redis://localhost:6379"
@@ -276,7 +276,7 @@ containers:
       - CORPUS_RUNTIME_INGEST_MAX_FIGS: "0"
       - CORPUS_RUNTIME_INGEST_MAX_TABLES: "0"
       - SENTRY_ENVIRONMENT: "production"
-      - SENTRY_RELEASE: "v2026.06.08.2110"
+      - SENTRY_RELEASE: "v2026.06.09.1108"
       - SENTRY_TRACES_SAMPLE_RATE: "0.05"
     secrets:
       - GHCR_TOKEN
