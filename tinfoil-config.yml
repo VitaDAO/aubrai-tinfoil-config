@@ -284,7 +284,7 @@ containers:
       - LITERATURE_FAST_SOURCES: "pubmed,europepmc,openalex,biorxiv,clinical-trials,medrxiv,pmc,paperclip"
       - LITERATURE_DEEP_SOURCES: "pubmed,europepmc,openalex,biorxiv,medrxiv,clinical-trials,pmc,paperclip,core,semantic,crossref,web,arxiv"
       - CORPUS_BLEND_ADAPTIVE_LIVE: "1"
-      - CORPUS_BLEND_MIN_LOGIT: "1.2"
+      - CORPUS_BLEND_MIN_LOGIT: "2.0"
       - CORPUS_BLEND_MIN_HITS: "3"
       - LITERATURE_FAST_FRESHNESS_SOURCES: "pubmed"
       - UNPAYWALL_EMAIL: "alex@vitadao.com"
