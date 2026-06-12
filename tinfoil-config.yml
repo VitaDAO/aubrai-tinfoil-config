@@ -279,6 +279,8 @@ containers:
       - LITERATURE_RERANK_PROVIDER: "nvidia"
       - NVIDIA_RERANK_MODEL: "nvidia/rerank-qa-mistral-4b"
       - NVIDIA_RERANK_FALLBACK_TO_EMBED: "true"
+      - UNPAYWALL_EMAIL: "alex@vitadao.com"
+      - CROSSREF_MAILTO: "alex@vitadao.com"
       - LITERATURE_DEEP_FULLTEXT: "1"
       - LITERATURE_DEEP_FULLTEXT_MAX: "1"
       - LITERATURE_DEEP_FULLTEXT_MAX_PAGES: "8"
