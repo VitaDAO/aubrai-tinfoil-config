@@ -16,7 +16,7 @@ containers:
   - name: aubrai
     # Image digest is pinned by CI (tinfoil-build.yml).
     # DO NOT edit this line manually — updated automatically on each deploy.
-    image: "ghcr.io/vitadao/aubrai-server:tinfoil-v2026.06.12.1045@sha256:5e17236c59cf4dc74d3a9809bb1e4419b573bc9ebb03244b022f4f5a939269d9"
+    image: "ghcr.io/vitadao/aubrai-server:tinfoil-v2026.06.12.1130@sha256:044fccb2e14813f9feb98383a5f070b3d30eb1688b7f1633c836a0746c48f9b5"
     registry:
       username: DobrinAlexandru
       password_secret: GHCR_TOKEN
@@ -154,7 +154,7 @@ containers:
       - ZILLIZ_TOKEN
 
   - name: worker
-    image: "ghcr.io/vitadao/aubrai-server:tinfoil-v2026.06.12.1045@sha256:5e17236c59cf4dc74d3a9809bb1e4419b573bc9ebb03244b022f4f5a939269d9"
+    image: "ghcr.io/vitadao/aubrai-server:tinfoil-v2026.06.12.1130@sha256:044fccb2e14813f9feb98383a5f070b3d30eb1688b7f1633c836a0746c48f9b5"
     registry:
       username: DobrinAlexandru
       password_secret: GHCR_TOKEN
@@ -263,7 +263,7 @@ containers:
       - AUBRAI_SENTRY_DSN
 
   - name: literature-agent
-    image: "ghcr.io/vitadao/aubrai-server:tinfoil-v2026.06.12.1045@sha256:5e17236c59cf4dc74d3a9809bb1e4419b573bc9ebb03244b022f4f5a939269d9"
+    image: "ghcr.io/vitadao/aubrai-server:tinfoil-v2026.06.12.1130@sha256:044fccb2e14813f9feb98383a5f070b3d30eb1688b7f1633c836a0746c48f9b5"
     registry:
       username: DobrinAlexandru
       password_secret: GHCR_TOKEN
