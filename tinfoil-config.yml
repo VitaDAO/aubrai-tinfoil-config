@@ -90,8 +90,11 @@ containers:
       # bioagent_v2 private-mode routes. Standard mode can continue to use
       # AUBRAI_SUPABASE_*; private routes write encrypted payloads to
       # AUBRAI_PRIVACY_SUPABASE_*.
-      - PRIVATE_CHAT_LLM_PROVIDER: "tinfoil"
-      - PRIVATE_CHAT_LLM_MODEL: "gemma4-31b"
+      # Private chat: Phala GPU-TEE via RedPill E2EE (attestation-verified).
+      # Private research stays on in-enclave Tinfoil until tool-calling E2EE exists.
+      - PRIVATE_CHAT_LLM_PROVIDER: "redpill-phala"
+      - PRIVATE_CHAT_LLM_MODEL: "phala/deepseek-v4-flash"
+      - REDPILL_REQUIRE_ATTESTATION_VERIFY: "1"
       - PRIVATE_RESEARCH_LLM_PROVIDER: "tinfoil"
       - PRIVATE_RESEARCH_LLM_MODEL: "deepseek-v4-pro"
       - PRIVATE_LITERATURE_ENABLED: "true"
@@ -154,6 +157,7 @@ containers:
       - NVIDIA_API_KEY
       - ZILLIZ_URI
       - ZILLIZ_TOKEN
+      - REDPILL_API_KEY
 
   - name: worker
     image: "ghcr.io/vitadao/aubrai-server:tinfoil-v2026.06.12.1450@sha256:a7fad84b2e6f465f0e8e4bb5e414ada3e598cd876e2e9f4f30177b2e76b2b6a5"
