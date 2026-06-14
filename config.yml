@@ -8,7 +8,7 @@
 #   The workflow pins the image digest here and creates a signed pre-release.
 #   Tinfoil detects the new tag and deploys automatically.
 
-cvm-version: "1"
+cvm-version: 0.7.5
 cpus: 8
 memory: 65536  # 64 GB — needed for dual Aubrai image pulls during relaunch
 
@@ -36,13 +36,14 @@ containers:
       - USE_JOB_QUEUE: "true"
       - REDIS_URL: "redis://localhost:6379"
       - LITERATURE_AGENT_URL: "http://localhost:8000"
-      - LITERATURE_AGENT_FAST_TIMEOUT_MS: "180000"
+      - LITERATURE_AGENT_FAST_TIMEOUT_MS: "420000"
       - LITERATURE_AGENT_STATUS_POLL_TIMEOUT_SECONDS: "5"
       - CORPUS_RUNTIME_INGEST_ENABLED: "true"
       - CORPUS_RUNTIME_INGEST_MAX_REFERENCES: "3"
       - CORPUS_RUNTIME_INGEST_MAX_PAGES: "0"
       - CORPUS_RUNTIME_INGEST_MAX_FIGS: "0"
       - CORPUS_RUNTIME_INGEST_MAX_TABLES: "0"
+      - CORPUS_DEMAND_ENABLED: "1"
       - CORPUS_DIAGNOSTIC_ENABLED: "true"
       - SENTRY_DSN: "https://929bbce961b77486a72a2528448b9d7f@o4511338800021504.ingest.de.sentry.io/4511393586217040"
       - CHARACTER_FILE: "characters/aubrai.json"
@@ -58,38 +59,42 @@ containers:
       # Disable LLM fallback — no data leaves to Anthropic/Google on Tinfoil failure
       - ENABLE_LLM_FALLBACK: "false"
       # Fast chat is standard/non-private. Private and deep roles stay on Tinfoil.
-      - FAST_CHAT_LLM_PROVIDER: "google"
-      - FAST_CHAT_LLM_MODEL: "gemini-3.5-flash"
-      - ORCHESTRATOR_LLM_PROVIDER: "anthropic"
-      - ORCHESTRATOR_LLM_MODEL: "claude-opus-4-7"
-      - REPLY_LLM_PROVIDER: "google"
-      - REPLY_LLM_MODEL: "gemini-3.5-flash"
-      - HYPOTHESIS_LLM_PROVIDER: "google"
-      - HYPOTHESIS_LLM_MODEL: "gemini-3.5-flash"
-      - HYP_LLM_PROVIDER: "google"
-      - HYP_LLM_MODEL: "gemini-3.5-flash"
-      - PLANNING_LLM_PROVIDER: "google"
-      - PLANNING_LLM_MODEL: "gemini-3.5-flash"
-      - SUBAGENT_LLM_PROVIDER: "google"
-      - SUBAGENT_LLM_MODEL: "gemini-3.5-flash"
-      - DEEP_RESEARCH_ORCHESTRATOR_PROVIDER: "anthropic"
-      - DEEP_RESEARCH_ORCHESTRATOR_MODEL: "claude-opus-4-7"
-      - CONTINUE_RESEARCH_LLM_PROVIDER: "google"
-      - CONTINUE_RESEARCH_LLM_MODEL: "gemini-3.5-flash"
-      - REFLECTION_LLM_PROVIDER: "google"
-      - REFLECTION_LLM_MODEL: "gemini-3.5-flash"
-      - DISCOVERY_LLM_PROVIDER: "google"
-      - DISCOVERY_LLM_MODEL: "gemini-3.5-flash"
-      - PAPER_GEN_LLM_PROVIDER: "google"
-      - PAPER_GEN_LLM_MODEL: "gemini-3.5-flash"
-      - CLARIFICATION_LLM_PROVIDER: "google"
-      - CLARIFICATION_LLM_MODEL: "gemini-3.5-flash"
+      - FAST_CHAT_LLM_PROVIDER: "sambanova"
+      - FAST_CHAT_LLM_MODEL: "MiniMax-M2.7"
+      - LITERATURE_FAST_SOURCES: "pubmed,europepmc,openalex,biorxiv,clinical-trials,medrxiv,pmc,paperclip"
+      - ORCHESTRATOR_LLM_PROVIDER: "openai"
+      - ORCHESTRATOR_LLM_MODEL: "gpt-5.5"
+      - REPLY_LLM_PROVIDER: "openai"
+      - REPLY_LLM_MODEL: "gpt-5.5"
+      - HYPOTHESIS_LLM_PROVIDER: "openai"
+      - HYPOTHESIS_LLM_MODEL: "gpt-5.5"
+      - HYP_LLM_PROVIDER: "openai"
+      - HYP_LLM_MODEL: "gpt-5.5"
+      - PLANNING_LLM_PROVIDER: "openai"
+      - PLANNING_LLM_MODEL: "gpt-5.5"
+      - SUBAGENT_LLM_PROVIDER: "openai"
+      - SUBAGENT_LLM_MODEL: "gpt-5.5"
+      - DEEP_RESEARCH_ORCHESTRATOR_PROVIDER: "openai"
+      - DEEP_RESEARCH_ORCHESTRATOR_MODEL: "gpt-5.5"
+      - CONTINUE_RESEARCH_LLM_PROVIDER: "openai"
+      - CONTINUE_RESEARCH_LLM_MODEL: "gpt-5.5"
+      - REFLECTION_LLM_PROVIDER: "openai"
+      - REFLECTION_LLM_MODEL: "gpt-5.5"
+      - DISCOVERY_LLM_PROVIDER: "openai"
+      - DISCOVERY_LLM_MODEL: "gpt-5.5"
+      - PAPER_GEN_LLM_PROVIDER: "openai"
+      - PAPER_GEN_LLM_MODEL: "gpt-5.5"
+      - CLARIFICATION_LLM_PROVIDER: "openai"
+      - CLARIFICATION_LLM_MODEL: "gpt-5.5"
       - SEARXNG_URL: "http://localhost:8080"
       # bioagent_v2 private-mode routes. Standard mode can continue to use
       # AUBRAI_SUPABASE_*; private routes write encrypted payloads to
       # AUBRAI_PRIVACY_SUPABASE_*.
-      - PRIVATE_CHAT_LLM_PROVIDER: "tinfoil"
-      - PRIVATE_CHAT_LLM_MODEL: "gemma4-31b"
+      # Private chat: Phala GPU-TEE via RedPill E2EE (attestation-verified).
+      # Private research stays on in-enclave Tinfoil until tool-calling E2EE exists.
+      - PRIVATE_CHAT_LLM_PROVIDER: "redpill-phala"
+      - PRIVATE_CHAT_LLM_MODEL: "phala/deepseek-v4-flash"
+      - REDPILL_REQUIRE_ATTESTATION_VERIFY: "1"
       - PRIVATE_RESEARCH_LLM_PROVIDER: "tinfoil"
       - PRIVATE_RESEARCH_LLM_MODEL: "deepseek-v4-pro"
       - PRIVATE_LITERATURE_ENABLED: "true"
@@ -109,7 +114,7 @@ containers:
       - TINFOIL_API_KEY
       - SAMBANOVA_API_KEY
       - GOOGLE_API_KEY
-      - ANTHROPIC_API_KEY
+      - OPENAI_API_KEY
 
       # Encryption master key (XChaCha20-Poly1305 for DB/file encryption)
       - ENCRYPTION_MASTER_KEY     # openssl rand -hex 32
@@ -152,6 +157,7 @@ containers:
       - NVIDIA_API_KEY
       - ZILLIZ_URI
       - ZILLIZ_TOKEN
+      - REDPILL_API_KEY
 
   - name: worker
     image: "ghcr.io/vitadao/aubrai-server:tinfoil-v2026.06.14.1955-litqa-full@sha256:f86c4cb0fc79b19d3e9fa989d94bb9602e0a058baa97c1d950319b054cc7a048"
@@ -162,6 +168,17 @@ containers:
 
     env:
       - NODE_ENV: "production"
+      - CORPUS_GROWER_ENABLED: "true"
+      - CORPUS_GROWER_INTERVAL_CRON: "*/12 * * * *"
+      - CORPUS_GROWER_MAX_PER_CYCLE: "10"
+      - CORPUS_GROWER_MODE: "gap"
+      - CORPUS_GROWER_COVERAGE_TARGET: "8"
+      - CORPUS_GROWER_COVERAGE_MIN_SCORE: "0.35"
+      - CORPUS_GROWER_FRONTIER_ENABLED: "1"
+      - CORPUS_DEMAND_ENABLED: "1"
+      - CORPUS_DEMAND_MAX_TOPICS: "200"
+      - CORPUS_RUNTIME_INGEST_ENABLED: "true"
+      - CORPUS_RUNTIME_INGEST_MAX_REFERENCES: "10"
       - PORT: "3000"
       - API_PORT: "3000"
       - SERVE_CLIENT_OUT: "false"
@@ -174,7 +191,7 @@ containers:
       - USE_JOB_QUEUE: "true"
       - REDIS_URL: "redis://localhost:6379"
       - LITERATURE_AGENT_URL: "http://localhost:8000"
-      - LITERATURE_AGENT_FAST_TIMEOUT_MS: "180000"
+      - LITERATURE_AGENT_FAST_TIMEOUT_MS: "420000"
       - LITERATURE_AGENT_STATUS_POLL_TIMEOUT_SECONDS: "5"
       - SENTRY_DSN: "https://929bbce961b77486a72a2528448b9d7f@o4511338800021504.ingest.de.sentry.io/4511393586217040"
       - CHARACTER_FILE: "characters/aubrai.json"
@@ -187,32 +204,33 @@ containers:
       - DEEP_RESEARCH_SESSION_MAX_DURATION_MS: "14400000"
       - DEEP_RESEARCH_CHECKPOINT_ENABLED: "true"
       - ENABLE_LLM_FALLBACK: "false"
-      - FAST_CHAT_LLM_PROVIDER: "google"
-      - FAST_CHAT_LLM_MODEL: "gemini-3.5-flash"
-      - ORCHESTRATOR_LLM_PROVIDER: "anthropic"
-      - ORCHESTRATOR_LLM_MODEL: "claude-opus-4-7"
-      - REPLY_LLM_PROVIDER: "google"
-      - REPLY_LLM_MODEL: "gemini-3.5-flash"
-      - HYPOTHESIS_LLM_PROVIDER: "google"
-      - HYPOTHESIS_LLM_MODEL: "gemini-3.5-flash"
-      - HYP_LLM_PROVIDER: "google"
-      - HYP_LLM_MODEL: "gemini-3.5-flash"
-      - PLANNING_LLM_PROVIDER: "google"
-      - PLANNING_LLM_MODEL: "gemini-3.5-flash"
-      - SUBAGENT_LLM_PROVIDER: "google"
-      - SUBAGENT_LLM_MODEL: "gemini-3.5-flash"
-      - DEEP_RESEARCH_ORCHESTRATOR_PROVIDER: "anthropic"
-      - DEEP_RESEARCH_ORCHESTRATOR_MODEL: "claude-opus-4-7"
-      - CONTINUE_RESEARCH_LLM_PROVIDER: "google"
-      - CONTINUE_RESEARCH_LLM_MODEL: "gemini-3.5-flash"
-      - REFLECTION_LLM_PROVIDER: "google"
-      - REFLECTION_LLM_MODEL: "gemini-3.5-flash"
-      - DISCOVERY_LLM_PROVIDER: "google"
-      - DISCOVERY_LLM_MODEL: "gemini-3.5-flash"
-      - PAPER_GEN_LLM_PROVIDER: "google"
-      - PAPER_GEN_LLM_MODEL: "gemini-3.5-flash"
-      - CLARIFICATION_LLM_PROVIDER: "google"
-      - CLARIFICATION_LLM_MODEL: "gemini-3.5-flash"
+      - FAST_CHAT_LLM_PROVIDER: "sambanova"
+      - FAST_CHAT_LLM_MODEL: "MiniMax-M2.7"
+      - LITERATURE_FAST_SOURCES: "pubmed,europepmc,openalex,biorxiv,clinical-trials,medrxiv,pmc,paperclip"
+      - ORCHESTRATOR_LLM_PROVIDER: "openai"
+      - ORCHESTRATOR_LLM_MODEL: "gpt-5.5"
+      - REPLY_LLM_PROVIDER: "openai"
+      - REPLY_LLM_MODEL: "gpt-5.5"
+      - HYPOTHESIS_LLM_PROVIDER: "openai"
+      - HYPOTHESIS_LLM_MODEL: "gpt-5.5"
+      - HYP_LLM_PROVIDER: "openai"
+      - HYP_LLM_MODEL: "gpt-5.5"
+      - PLANNING_LLM_PROVIDER: "openai"
+      - PLANNING_LLM_MODEL: "gpt-5.5"
+      - SUBAGENT_LLM_PROVIDER: "openai"
+      - SUBAGENT_LLM_MODEL: "gpt-5.5"
+      - DEEP_RESEARCH_ORCHESTRATOR_PROVIDER: "openai"
+      - DEEP_RESEARCH_ORCHESTRATOR_MODEL: "gpt-5.5"
+      - CONTINUE_RESEARCH_LLM_PROVIDER: "openai"
+      - CONTINUE_RESEARCH_LLM_MODEL: "gpt-5.5"
+      - REFLECTION_LLM_PROVIDER: "openai"
+      - REFLECTION_LLM_MODEL: "gpt-5.5"
+      - DISCOVERY_LLM_PROVIDER: "openai"
+      - DISCOVERY_LLM_MODEL: "gpt-5.5"
+      - PAPER_GEN_LLM_PROVIDER: "openai"
+      - PAPER_GEN_LLM_MODEL: "gpt-5.5"
+      - CLARIFICATION_LLM_PROVIDER: "openai"
+      - CLARIFICATION_LLM_MODEL: "gpt-5.5"
       - SEARXNG_URL: "http://localhost:8080"
       - PRIVATE_CHAT_LLM_PROVIDER: "tinfoil"
       - PRIVATE_CHAT_LLM_MODEL: "gemma4-31b"
@@ -228,7 +246,7 @@ containers:
       - TINFOIL_API_KEY
       - SAMBANOVA_API_KEY
       - GOOGLE_API_KEY
-      - ANTHROPIC_API_KEY
+      - OPENAI_API_KEY
       - ENCRYPTION_MASTER_KEY
       - BIOAGENTS_SECRET
       - AUBRAI_PRIVY_APP_ID
@@ -268,14 +286,50 @@ containers:
       - REDIS_URL: "redis://localhost:6379"
       - PAPER_SEARCH_MCP_SEARXNG_URL: "http://localhost:8080"
       - SEARXNG_URL: "http://localhost:8080"
-      - LITERATURE_AGENT_LLM_MODEL: "glm-5-1"
-      - LITERATURE_AGENT_PLANNER_MODEL: "glm-5-1"
+      - LITERATURE_AGENT_LLM_PROVIDER: "nebius"
+      - LITERATURE_AGENT_LLM_MODEL: "nvidia/nemotron-3-super-120b-a12b"
+      - LITERATURE_AGENT_PLANNER_MODEL: "nvidia/nemotron-3-super-120b-a12b"
+      - NEBIUS_BASE_URL: "https://api.tokenfactory.nebius.com/v1"
+      - LITERATURE_RERANK_PROVIDER: "openrouter-rerank"
+      - LITERATURE_AGENT_RETRIEVAL_PROFILE: "litqa-recall"
+      - LITERATURE_HYDE_ENABLED: "false"
+      - LITERATURE_LITQA_RECALL_MAX_QUERIES: "16"
+      - LITERATURE_LITQA_RERANK_WINDOW: "400"
+      - LITERATURE_LITQA_RERANK_FUSION: "replace"
+      - LITERATURE_LITQA_RECALL_PER_SOURCE_LIMIT: "50"
+      - LITERATURE_FAST_SOURCES: "pubmed,europepmc,biorxiv,clinical-trials,medrxiv,pmc,crossref"
+      - LITERATURE_DEEP_SOURCES: "pubmed,europepmc,openalex,biorxiv,medrxiv,clinical-trials,pmc,paperclip,core,semantic,crossref,web,arxiv"
+      - CORPUS_BLEND_ADAPTIVE_LIVE: "1"
+      - CORPUS_BLEND_MIN_LOGIT: "2.0"
+      - CORPUS_BLEND_MIN_HITS: "3"
+      - LITERATURE_FAST_FRESHNESS_SOURCES: "pubmed"
+      - UNPAYWALL_EMAIL: "alex@vitadao.com"
+      - CROSSREF_MAILTO: "alex@vitadao.com"
+      - LITERATURE_DEEP_FULLTEXT: "1"
+      - LITERATURE_DEEP_FULLTEXT_MAX: "1"
+      - LITERATURE_DEEP_FULLTEXT_MAX_PAGES: "8"
+      - LITERATURE_DEEP_FULLTEXT_TIMEOUT_SECONDS: "45"
+      - LITERATURE_DEEP_FULLTEXT_MAX_CHARS: "12000"
+      - LITERATURE_DEEP_FIGURES: "0"
+      - LITERATURE_DEEP_FIGURES_MAX: "1"
+      - LITERATURE_DEEP_FIGURES_TIMEOUT_SECONDS: "30"
       - LITERATURE_AGENT_JOB_TTL_SECONDS: "86400"
       - LITERATURE_AGENT_SYNTHESIS_TIMEOUT_SECONDS: "120"
+      - LITERATURE_AGENT_FAST_SYNTHESIS_TIMEOUT_SECONDS: "60"
+      - LITERATURE_AGENT_FAST_JOB_BUDGET_SECONDS: "360"
+      - LITERATURE_AGENT_RELEVANCE_JUDGE_TIMEOUT_SECONDS: "60"
+      - LITERATURE_AGENT_FAST_SYNTHESIZE_PARTIAL: "true"
+      - CORPUS_RETRIEVAL_ENABLED: "true"
+      - CORPUS_RETRIEVAL_MAX: "5"
       - LITERATURE_AGENT_PLANNER_TIMEOUT_SECONDS: "60"
       - LITERATURE_AGENT_DEEP_OUTLINE_TIMEOUT_SECONDS: "60"
       - LITERATURE_AGENT_DEEP_SECTION_TIMEOUT_SECONDS: "90"
       - LITERATURE_AGENT_DEEP_FINAL_TIMEOUT_SECONDS: "120"
+      - LITERATURE_AGENT_DEEP_SINGLE_CALL: "true"
+      - LITERATURE_AGENT_DEEP_SYNTHESIS_TIMEOUT_SECONDS: "90"
+      - LITERATURE_AGENT_DEEP_JOB_BUDGET_SECONDS: "150"
+      - LITERATURE_AGENT_DEEP_MIN_SYNTHESIS_CHARS: "800"
+      - LITERATURE_AGENT_DEEP_MAX_TOKENS: "3000"
       - CORPUS_EMBED_PROVIDER: "nvidia"
       - CORPUS_COLLECTION: "aubrai_longevity_v1"
       - CORPUS_RUNTIME_INGEST_MAX_REFERENCES: "3"
@@ -290,6 +344,8 @@ containers:
       - TINFOIL_API_KEY
       - AUBRAI_SENTRY_DSN
       - NVIDIA_API_KEY
+      - NEBIUS_API_KEY
+      - OPENROUTER_API_KEY
       - ZILLIZ_URI
       - ZILLIZ_TOKEN
       - PAPERCLIP_API_KEY

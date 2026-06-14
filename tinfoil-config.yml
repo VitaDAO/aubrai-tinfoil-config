@@ -36,7 +36,7 @@ containers:
       - USE_JOB_QUEUE: "true"
       - REDIS_URL: "redis://localhost:6379"
       - LITERATURE_AGENT_URL: "http://localhost:8000"
-      - LITERATURE_AGENT_FAST_TIMEOUT_MS: "180000"
+      - LITERATURE_AGENT_FAST_TIMEOUT_MS: "420000"
       - LITERATURE_AGENT_STATUS_POLL_TIMEOUT_SECONDS: "5"
       - CORPUS_RUNTIME_INGEST_ENABLED: "true"
       - CORPUS_RUNTIME_INGEST_MAX_REFERENCES: "3"
@@ -191,7 +191,7 @@ containers:
       - USE_JOB_QUEUE: "true"
       - REDIS_URL: "redis://localhost:6379"
       - LITERATURE_AGENT_URL: "http://localhost:8000"
-      - LITERATURE_AGENT_FAST_TIMEOUT_MS: "180000"
+      - LITERATURE_AGENT_FAST_TIMEOUT_MS: "420000"
       - LITERATURE_AGENT_STATUS_POLL_TIMEOUT_SECONDS: "5"
       - SENTRY_DSN: "https://929bbce961b77486a72a2528448b9d7f@o4511338800021504.ingest.de.sentry.io/4511393586217040"
       - CHARACTER_FILE: "characters/aubrai.json"
@@ -290,10 +290,14 @@ containers:
       - LITERATURE_AGENT_LLM_MODEL: "nvidia/nemotron-3-super-120b-a12b"
       - LITERATURE_AGENT_PLANNER_MODEL: "nvidia/nemotron-3-super-120b-a12b"
       - NEBIUS_BASE_URL: "https://api.tokenfactory.nebius.com/v1"
-      - LITERATURE_RERANK_PROVIDER: "nvidia"
-      - NVIDIA_RERANK_MODEL: "nvidia/rerank-qa-mistral-4b"
-      - NVIDIA_RERANK_FALLBACK_TO_EMBED: "true"
-      - LITERATURE_FAST_SOURCES: "pubmed,europepmc,openalex,biorxiv,clinical-trials,medrxiv,pmc,paperclip"
+      - LITERATURE_RERANK_PROVIDER: "openrouter-rerank"
+      - LITERATURE_AGENT_RETRIEVAL_PROFILE: "litqa-recall"
+      - LITERATURE_HYDE_ENABLED: "false"
+      - LITERATURE_LITQA_RECALL_MAX_QUERIES: "16"
+      - LITERATURE_LITQA_RERANK_WINDOW: "400"
+      - LITERATURE_LITQA_RERANK_FUSION: "replace"
+      - LITERATURE_LITQA_RECALL_PER_SOURCE_LIMIT: "50"
+      - LITERATURE_FAST_SOURCES: "pubmed,europepmc,biorxiv,clinical-trials,medrxiv,pmc,crossref"
       - LITERATURE_DEEP_SOURCES: "pubmed,europepmc,openalex,biorxiv,medrxiv,clinical-trials,pmc,paperclip,core,semantic,crossref,web,arxiv"
       - CORPUS_BLEND_ADAPTIVE_LIVE: "1"
       - CORPUS_BLEND_MIN_LOGIT: "2.0"
@@ -312,7 +316,7 @@ containers:
       - LITERATURE_AGENT_JOB_TTL_SECONDS: "86400"
       - LITERATURE_AGENT_SYNTHESIS_TIMEOUT_SECONDS: "120"
       - LITERATURE_AGENT_FAST_SYNTHESIS_TIMEOUT_SECONDS: "60"
-      - LITERATURE_AGENT_FAST_JOB_BUDGET_SECONDS: "80"
+      - LITERATURE_AGENT_FAST_JOB_BUDGET_SECONDS: "360"
       - LITERATURE_AGENT_RELEVANCE_JUDGE_TIMEOUT_SECONDS: "60"
       - LITERATURE_AGENT_FAST_SYNTHESIZE_PARTIAL: "true"
       - CORPUS_RETRIEVAL_ENABLED: "true"
@@ -341,6 +345,7 @@ containers:
       - AUBRAI_SENTRY_DSN
       - NVIDIA_API_KEY
       - NEBIUS_API_KEY
+      - OPENROUTER_API_KEY
       - ZILLIZ_URI
       - ZILLIZ_TOKEN
       - PAPERCLIP_API_KEY
