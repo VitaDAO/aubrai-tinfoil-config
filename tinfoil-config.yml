@@ -346,6 +346,7 @@ containers:
       - TINFOIL_API_KEY
       - AUBRAI_SENTRY_DSN
       - NVIDIA_API_KEY
+      - LITERATURE_AGENT_API_KEY
       - NEBIUS_API_KEY
       - OPENROUTER_API_KEY
       - ZILLIZ_URI
