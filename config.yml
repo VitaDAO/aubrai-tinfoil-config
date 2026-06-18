@@ -90,10 +90,11 @@ containers:
       # bioagent_v2 private-mode routes. Standard mode can continue to use
       # AUBRAI_SUPABASE_*; private routes write encrypted payloads to
       # AUBRAI_PRIVACY_SUPABASE_*.
-      # Private chat: Phala GPU-TEE via RedPill E2EE (attestation-verified).
-      # Private research stays on in-enclave Tinfoil until tool-calling E2EE exists.
-      - PRIVATE_CHAT_LLM_PROVIDER: "redpill-phala"
-      - PRIVATE_CHAT_LLM_MODEL: "phala/deepseek-v4-flash"
+      # Private chat: Aubrai-hosted Tinfoil model for private fast responses.
+      # Private research stays on in-enclave Tinfoil.
+      - PRIVATE_CHAT_LLM_PROVIDER: "tinfoil"
+      - PRIVATE_CHAT_LLM_MODEL: "tinfoil/mpk/mpk-1d9243855dbb54dcbdb53df4dc9574a45ccffb1a7013744d09fbcdb44eea84b0"
+      - PRIVATE_CHAT_TINFOIL_FALLBACK_MODEL: "tinfoil/mpk/mpk-1d9243855dbb54dcbdb53df4dc9574a45ccffb1a7013744d09fbcdb44eea84b0"
       - REDPILL_REQUIRE_ATTESTATION_VERIFY: "1"
       - PRIVATE_RESEARCH_LLM_PROVIDER: "tinfoil"
       - PRIVATE_RESEARCH_LLM_MODEL: "deepseek-v4-pro"
@@ -234,7 +235,8 @@ containers:
       - CLARIFICATION_LLM_MODEL: "gpt-5.5"
       - SEARXNG_URL: "http://localhost:8080"
       - PRIVATE_CHAT_LLM_PROVIDER: "tinfoil"
-      - PRIVATE_CHAT_LLM_MODEL: "gemma4-31b"
+      - PRIVATE_CHAT_LLM_MODEL: "tinfoil/mpk/mpk-1d9243855dbb54dcbdb53df4dc9574a45ccffb1a7013744d09fbcdb44eea84b0"
+      - PRIVATE_CHAT_TINFOIL_FALLBACK_MODEL: "tinfoil/mpk/mpk-1d9243855dbb54dcbdb53df4dc9574a45ccffb1a7013744d09fbcdb44eea84b0"
       - PRIVATE_RESEARCH_LLM_PROVIDER: "tinfoil"
       - PRIVATE_RESEARCH_LLM_MODEL: "deepseek-v4-pro"
       - PRIVATE_LITERATURE_ENABLED: "true"
