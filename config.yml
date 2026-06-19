@@ -25,6 +25,7 @@ containers:
       - NODE_ENV: "production"
       - PORT: "3000"
       - API_PORT: "3000"
+      - AUBRAI_PUBLIC_URL: "https://aubrai-server-prod.vitality-now.containers.tinfoil.dev"
       - SERVE_CLIENT_OUT: "false"
       - AUTH_MODE: "jwt"
       - DB_BACKEND: "supabase"
