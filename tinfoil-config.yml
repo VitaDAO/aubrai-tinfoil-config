@@ -16,7 +16,7 @@ containers:
   - name: aubrai
     # Image digest is pinned by CI (tinfoil-build.yml).
     # DO NOT edit this line manually — updated automatically on each deploy.
-    image: "ghcr.io/vitadao/aubrai-server:tinfoil-v2026.06.23.0039-website-link-depth@sha256:b6dd48fcc78cc370503f8a1efb312bc75a5fd0c10abe85e820bfbe2a2b72ffa6"
+    image: "ghcr.io/vitadao/aubrai-server:tinfoil-v2026.06.23.0119-website-section-crawl@sha256:79e7f9b646087ca55cf16bd5d48cf576d41dcfece7be3c4eae0fd5aeb773b43f"
     registry:
       username: DobrinAlexandru
       password_secret: GHCR_TOKEN
@@ -162,7 +162,7 @@ containers:
       - REDPILL_API_KEY
 
   - name: worker
-    image: "ghcr.io/vitadao/aubrai-server:tinfoil-v2026.06.23.0039-website-link-depth@sha256:b6dd48fcc78cc370503f8a1efb312bc75a5fd0c10abe85e820bfbe2a2b72ffa6"
+    image: "ghcr.io/vitadao/aubrai-server:tinfoil-v2026.06.23.0119-website-section-crawl@sha256:79e7f9b646087ca55cf16bd5d48cf576d41dcfece7be3c4eae0fd5aeb773b43f"
     registry:
       username: DobrinAlexandru
       password_secret: GHCR_TOKEN
@@ -279,7 +279,7 @@ containers:
       - AUBRAI_SENTRY_DSN
 
   - name: literature-agent
-    image: "ghcr.io/vitadao/aubrai-server:tinfoil-v2026.06.23.0039-website-link-depth@sha256:b6dd48fcc78cc370503f8a1efb312bc75a5fd0c10abe85e820bfbe2a2b72ffa6"
+    image: "ghcr.io/vitadao/aubrai-server:tinfoil-v2026.06.23.0119-website-section-crawl@sha256:79e7f9b646087ca55cf16bd5d48cf576d41dcfece7be3c4eae0fd5aeb773b43f"
     registry:
       username: DobrinAlexandru
       password_secret: GHCR_TOKEN
