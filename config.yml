@@ -105,6 +105,7 @@ containers:
       - HPKE_PUBLIC_KEY: "pBbUKMAOC20RbFqfbqNcmqUwb8TGUbpxw4jS4OOj+QY="
 
     secrets:
+      - JINA_API_KEY
       # All values below are encrypted — only decryptable inside the enclave.
       # Add each in the Tinfoil Dashboard > Secrets before first deploy.
 
@@ -244,6 +245,7 @@ containers:
       - HPKE_PUBLIC_KEY: "pBbUKMAOC20RbFqfbqNcmqUwb8TGUbpxw4jS4OOj+QY="
 
     secrets:
+      - JINA_API_KEY
       - GHCR_TOKEN
       - TINFOIL_API_KEY
       - SAMBANOVA_API_KEY
@@ -343,6 +345,7 @@ containers:
       - SENTRY_RELEASE: "v2026.06.09.1108"
       - SENTRY_TRACES_SAMPLE_RATE: "0.05"
     secrets:
+      - JINA_API_KEY
       - GHCR_TOKEN
       - TINFOIL_API_KEY
       - AUBRAI_SENTRY_DSN
