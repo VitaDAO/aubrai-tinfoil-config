@@ -91,13 +91,15 @@ containers:
       # bioagent_v2 private-mode routes. Standard mode can continue to use
       # AUBRAI_SUPABASE_*; private routes write encrypted payloads to
       # AUBRAI_PRIVACY_SUPABASE_*.
-      # Private chat: verified Vita local Opus endpoint.
-      # Private research stays on in-enclave Tinfoil until tool-calling E2EE exists.
-      - PRIVATE_CHAT_LLM_PROVIDER: "vita-tinfoil-model"
-      - PRIVATE_CHAT_LLM_MODEL: "qwen-opus"
+      # Private mode routed to GLM-5.2 via RedPill/Phala TEE confidential inference.
+      - PRIVATE_CHAT_LLM_PROVIDER: "redpill-phala"
+      - PRIVATE_CHAT_LLM_MODEL: "z-ai/glm-5.2"
+      - REDPILL_BASE_URL: "https://api.redpill.ai"
       - REDPILL_REQUIRE_ATTESTATION_VERIFY: "1"
-      - PRIVATE_RESEARCH_LLM_PROVIDER: "tinfoil"
-      - PRIVATE_RESEARCH_LLM_MODEL: "deepseek-v4-pro"
+      - PRIVATE_RESEARCH_LLM_PROVIDER: "redpill-phala"
+      - PRIVATE_RESEARCH_LLM_MODEL: "z-ai/glm-5.2"
+      - PRIVATE_HELPER_LLM_PROVIDER: "redpill-phala"
+      - PRIVATE_HELPER_LLM_MODEL: "z-ai/glm-5.2"
       - PRIVATE_LITERATURE_ENABLED: "true"
       - PRIVATE_MODE_ALLOW_EXTERNAL_TOOLS: "false"
       - PRIVATE_MODE_REQUIRE_ENCRYPTED_STORAGE: "true"
@@ -235,10 +237,13 @@ containers:
       - CLARIFICATION_LLM_PROVIDER: "openai"
       - CLARIFICATION_LLM_MODEL: "gpt-5.5"
       - SEARXNG_URL: "http://localhost:8080"
-      - PRIVATE_CHAT_LLM_PROVIDER: "vita-tinfoil-model"
-      - PRIVATE_CHAT_LLM_MODEL: "qwen-opus"
-      - PRIVATE_RESEARCH_LLM_PROVIDER: "tinfoil"
-      - PRIVATE_RESEARCH_LLM_MODEL: "deepseek-v4-pro"
+      - PRIVATE_CHAT_LLM_PROVIDER: "redpill-phala"
+      - PRIVATE_CHAT_LLM_MODEL: "z-ai/glm-5.2"
+      - REDPILL_BASE_URL: "https://api.redpill.ai"
+      - PRIVATE_RESEARCH_LLM_PROVIDER: "redpill-phala"
+      - PRIVATE_RESEARCH_LLM_MODEL: "z-ai/glm-5.2"
+      - PRIVATE_HELPER_LLM_PROVIDER: "redpill-phala"
+      - PRIVATE_HELPER_LLM_MODEL: "z-ai/glm-5.2"
       - PRIVATE_LITERATURE_ENABLED: "true"
       - PRIVATE_MODE_ALLOW_EXTERNAL_TOOLS: "false"
       - PRIVATE_MODE_REQUIRE_ENCRYPTED_STORAGE: "true"
@@ -279,6 +284,7 @@ containers:
       - DATA_ANALYSIS_API_URL
       - DATA_ANALYSIS_API_KEY
       - AUBRAI_SENTRY_DSN
+      - REDPILL_API_KEY
 
   - name: literature-agent
     image: "ghcr.io/vitadao/aubrai-server:tinfoil-v2026.06.23.2047-blocked-read-fix@sha256:d075be0ac1588b083a2fe9832890383771fcad7de76523b9ee6a16e64d900ed5"
