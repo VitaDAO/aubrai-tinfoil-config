@@ -314,9 +314,9 @@ containers:
       - REDIS_URL: "redis://localhost:6379"
       - PAPER_SEARCH_MCP_SEARXNG_URL: "http://localhost:8080"
       - SEARXNG_URL: "http://localhost:8080"
-      - LITERATURE_AGENT_LLM_PROVIDER: "nebius"
-      - LITERATURE_AGENT_LLM_MODEL: "nvidia/nemotron-3-super-120b-a12b"
-      - LITERATURE_AGENT_PLANNER_MODEL: "nvidia/nemotron-3-super-120b-a12b"
+      - LITERATURE_AGENT_LLM_PROVIDER: "cerebras"
+      - LITERATURE_AGENT_LLM_MODEL: "gemma-4-31b"
+      - LITERATURE_AGENT_PLANNER_MODEL: "gemma-4-31b"
       - NEBIUS_BASE_URL: "https://api.tokenfactory.nebius.com/v1"
       - LITERATURE_RERANK_PROVIDER: "openrouter-rerank"
       - LITERATURE_AGENT_RETRIEVAL_PROFILE: "default"
@@ -375,6 +375,7 @@ containers:
       - NVIDIA_API_KEY
       - LITERATURE_AGENT_API_KEY
       - NEBIUS_API_KEY
+      - CEREBRAS_API_KEY
       - OPENROUTER_API_KEY
       - ZILLIZ_URI
       - ZILLIZ_TOKEN
