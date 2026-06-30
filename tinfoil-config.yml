@@ -60,8 +60,8 @@ containers:
       # Disable LLM fallback — no data leaves to Anthropic/Google on Tinfoil failure
       - ENABLE_LLM_FALLBACK: "false"
       # Fast chat is standard/non-private. Private and deep roles stay on Tinfoil.
-      - FAST_CHAT_LLM_PROVIDER: "sambanova"
-      - FAST_CHAT_LLM_MODEL: "MiniMax-M2.7"
+      - FAST_CHAT_LLM_PROVIDER: "cerebras"
+      - FAST_CHAT_LLM_MODEL: "gemma-4-31b"
       - LITERATURE_FAST_SOURCES: "pubmed,europepmc,pmc,biorxiv,medrxiv,crossref"
       - ORCHESTRATOR_LLM_PROVIDER: "openai"
       - ORCHESTRATOR_LLM_MODEL: "gpt-5.5"
@@ -212,8 +212,8 @@ containers:
       - DEEP_RESEARCH_SESSION_MAX_DURATION_MS: "14400000"
       - DEEP_RESEARCH_CHECKPOINT_ENABLED: "true"
       - ENABLE_LLM_FALLBACK: "false"
-      - FAST_CHAT_LLM_PROVIDER: "sambanova"
-      - FAST_CHAT_LLM_MODEL: "MiniMax-M2.7"
+      - FAST_CHAT_LLM_PROVIDER: "cerebras"
+      - FAST_CHAT_LLM_MODEL: "gemma-4-31b"
       - LITERATURE_FAST_SOURCES: "pubmed,europepmc,pmc,biorxiv,medrxiv,crossref"
       - ORCHESTRATOR_LLM_PROVIDER: "openai"
       - ORCHESTRATOR_LLM_MODEL: "gpt-5.5"
