@@ -120,6 +120,7 @@ containers:
       # Tinfoil inference
       - TINFOIL_API_KEY
       - SAMBANOVA_API_KEY
+      - CEREBRAS_API_KEY
       - GOOGLE_API_KEY
       - OPENAI_API_KEY
 
@@ -257,6 +258,7 @@ containers:
       - GHCR_TOKEN
       - TINFOIL_API_KEY
       - SAMBANOVA_API_KEY
+      - CEREBRAS_API_KEY
       - GOOGLE_API_KEY
       - OPENAI_API_KEY
       - ENCRYPTION_MASTER_KEY
