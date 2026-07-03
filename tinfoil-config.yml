@@ -10,7 +10,7 @@
 
 cvm-version: 0.7.5
 cpus: 8
-memory: 16384  # 16 GB — runtime uses ~4GB (6% of 64GB); image is 0.46GB compressed
+memory: 65536  # 64 GB — startup (Bun + bundled Python literature-agent + SearXNG) needs headroom; 16GB OOM-loops on relaunch (verified 2026-07-04)
 
 containers:
   - name: aubrai
