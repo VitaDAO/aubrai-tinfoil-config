@@ -386,12 +386,6 @@ containers:
     image: "docker.io/redis:7-alpine@sha256:4bfd9eca23339865dc14fe75f6d9ae643f714924623978dd2798f1a673b08f43"
     command: ["redis-server", "--appendonly", "yes", "--maxmemory", "512mb", "--maxmemory-policy", "noeviction"]
 
-  - name: searxng
-    image: "ghcr.io/vitadao/aubrai-agentic-searxng:tinfoil-v1.0.70@sha256:14a53f4b9347b700155917348c21ef665143351ac5e9076787dce051f7a01a21"
-    registry:
-      username: DobrinAlexandru
-      password_secret: GHCR_TOKEN
-
 shim:
   upstream-port: 3000
   paths:
