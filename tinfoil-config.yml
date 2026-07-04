@@ -10,7 +10,7 @@
 
 cvm-version: 0.7.5
 cpus: 8
-memory: 32768  # 32 GB — testing lower floor after externalizing SearXNG to Railway
+memory: 16384  # 16 GB — retry after externalizing SearXNG (removed a boot process)
 
 containers:
   - name: aubrai
