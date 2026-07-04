@@ -10,7 +10,7 @@
 
 cvm-version: 0.7.5
 cpus: 8
-memory: 65536  # 64 GB REQUIRED — 16GB allocates via stop+start but the boot peak (Bun+Python+SearXNG+Redis starting together) exceeds 16GB and the CVM never finishes booting (verified 2026-07-04).
+memory: 32768  # 32 GB — testing lower floor after externalizing SearXNG to Railway
 
 containers:
   - name: aubrai
