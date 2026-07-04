@@ -10,7 +10,7 @@
 
 cvm-version: 0.7.5
 cpus: 8
-memory: 16384  # 16 GB — retry after externalizing SearXNG (removed a boot process)
+memory: 32768  # 32 GB — confirmed floor after SearXNG externalized (16GB still stalls on boot; 32GB boots healthy, verified 2026-07-04)
 
 containers:
   - name: aubrai
