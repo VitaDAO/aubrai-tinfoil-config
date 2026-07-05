@@ -179,7 +179,7 @@ containers:
     registry:
       username: DobrinAlexandru
       password_secret: GHCR_TOKEN
-    command: ["bun", "src/worker.ts"]
+    command: ["bun", "dist/worker.js"]
 
     env:
       - NODE_ENV: "production"
