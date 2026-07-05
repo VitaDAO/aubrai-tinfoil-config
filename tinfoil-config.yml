@@ -9,7 +9,7 @@
 #   Tinfoil detects the new tag and deploys automatically.
 
 cvm-version: 0.7.5
-cpus: 8
+cpus: 4  # workload is I/O-bound (~2-10% CPU under load); 4 is ~5x observed peak
 memory: 16384  # 16GB test with slim deps (image shrunk ~2.25GB->~1.8GB, may now fit the ~2GB RAM-disk)
 
 containers:
