@@ -10,7 +10,7 @@
 
 cvm-version: 0.7.5
 cpus: 8
-memory: 16384  # 16GB test — API pre-bundled (boot transpile cut)
+memory: 32768  # 32 GB floor — 16GB fails: RAM-disk (~2GB at 16GB) cannot fit the 2.25GB decompressed image (not app mem, which is ~3GB). Bundling both servers wasn't enough.
 
 containers:
   - name: aubrai
