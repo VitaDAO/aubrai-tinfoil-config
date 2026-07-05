@@ -122,6 +122,7 @@ containers:
 
       # GHCR registry credentials
       - GHCR_TOKEN
+      - LITERATURE_AGENT_SEARXNG_TOKEN
 
       # Tinfoil inference
       - TINFOIL_API_KEY
@@ -268,6 +269,7 @@ containers:
     secrets:
       - JINA_API_KEY
       - GHCR_TOKEN
+      - LITERATURE_AGENT_SEARXNG_TOKEN
       - TINFOIL_API_KEY
       - SAMBANOVA_API_KEY
       - CEREBRAS_API_KEY
@@ -370,6 +372,7 @@ containers:
     secrets:
       - JINA_API_KEY
       - GHCR_TOKEN
+      - LITERATURE_AGENT_SEARXNG_TOKEN
       - TINFOIL_API_KEY
       - AUBRAI_SENTRY_DSN
       - NVIDIA_API_KEY
