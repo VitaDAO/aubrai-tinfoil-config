@@ -10,7 +10,7 @@
 
 cvm-version: 0.7.5
 cpus: 8
-memory: 32768  # 32 GB floor — 16GB fails: RAM-disk (~2GB at 16GB) cannot fit the 2.25GB decompressed image (not app mem, which is ~3GB). Bundling both servers wasn't enough.
+memory: 16384  # 16GB test with slim deps (image shrunk ~2.25GB->~1.8GB, may now fit the ~2GB RAM-disk)
 
 containers:
   - name: aubrai
