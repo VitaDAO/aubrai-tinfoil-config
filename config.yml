@@ -55,7 +55,6 @@ containers:
       - DEEP_RESEARCH_SESSION_MAX_DURATION_MS: "14400000"
       - DEEP_RESEARCH_CHECKPOINT_ENABLED: "true"
       # Disable LLM fallback — no data leaves to Anthropic/Google on Tinfoil failure
-      - ENABLE_LLM_FALLBACK: "false"
       # Fast chat is standard/non-private. Private and deep roles stay on Tinfoil.
       - FAST_CHAT_LLM_PROVIDER: "cerebras"
       - FAST_CHAT_LLM_MODEL: "gemma-4-31b"
@@ -139,9 +138,6 @@ containers:
       - AUBRAI_PRIVACY_SUPABASE_SERVICE_KEY
 
       # File storage
-      - AWS_ACCESS_KEY_ID
-      - AWS_SECRET_ACCESS_KEY
-      - AWS_REGION
 
       # HPKE key pair — private is sealed, public is the attestation anchor
       - HPKE_PRIVATE_KEY
@@ -202,7 +198,6 @@ containers:
       - TEXT_EMBEDDING_MODEL: "nomic-embed-text"
       - DEEP_RESEARCH_SESSION_MAX_DURATION_MS: "14400000"
       - DEEP_RESEARCH_CHECKPOINT_ENABLED: "true"
-      - ENABLE_LLM_FALLBACK: "false"
       - FAST_CHAT_LLM_PROVIDER: "cerebras"
       - FAST_CHAT_LLM_MODEL: "gemma-4-31b"
       - FAST_CHAT_HYDE_PROVIDER: "cerebras"
@@ -262,9 +257,6 @@ containers:
       - SUPABASE_JWT_SECRET
       - AUBRAI_PRIVACY_SUPABASE_URL
       - AUBRAI_PRIVACY_SUPABASE_SERVICE_KEY
-      - AWS_ACCESS_KEY_ID
-      - AWS_SECRET_ACCESS_KEY
-      - AWS_REGION
       - HPKE_PRIVATE_KEY
       - HPKE_PUBLIC_KEY
       - OPENSCHOLAR_API_URL
