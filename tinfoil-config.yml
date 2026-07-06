@@ -48,13 +48,10 @@ containers:
       - CORPUS_DIAGNOSTIC_ENABLED: "true"
       - SENTRY_DSN: "https://929bbce961b77486a72a2528448b9d7f@o4511338800021504.ingest.de.sentry.io/4511393586217040"
       - CHARACTER_FILE: "characters/aubrai.json"
-      - STORAGE_PROVIDER: "s3"
       - DATA_DIR: "/tmp/aubrai-data"
       # Private embeddings via Tinfoil (768-dim nomic-embed-text, HPKE-encrypted)
       - EMBEDDING_PROVIDER: "tinfoil"
       - TEXT_EMBEDDING_MODEL: "nomic-embed-text"
-      - USE_RERANKING: "true"
-      - MAX_AUTO_ITERATIONS: "5"
       - DEEP_RESEARCH_SESSION_MAX_DURATION_MS: "14400000"
       - DEEP_RESEARCH_CHECKPOINT_ENABLED: "true"
       # Disable LLM fallback — no data leaves to Anthropic/Google on Tinfoil failure
@@ -75,24 +72,16 @@ containers:
       - REPLY_LLM_MODEL: "gpt-5.5"
       - HYPOTHESIS_LLM_PROVIDER: "openai"
       - HYPOTHESIS_LLM_MODEL: "gpt-5.5"
-      - HYP_LLM_PROVIDER: "openai"
-      - HYP_LLM_MODEL: "gpt-5.5"
       - PLANNING_LLM_PROVIDER: "openai"
       - PLANNING_LLM_MODEL: "gpt-5.5"
       - SUBAGENT_LLM_PROVIDER: "openai"
       - SUBAGENT_LLM_MODEL: "gpt-5.5"
       - DEEP_RESEARCH_ORCHESTRATOR_PROVIDER: "openai"
       - DEEP_RESEARCH_ORCHESTRATOR_MODEL: "gpt-5.5"
-      - CONTINUE_RESEARCH_LLM_PROVIDER: "openai"
-      - CONTINUE_RESEARCH_LLM_MODEL: "gpt-5.5"
       - REFLECTION_LLM_PROVIDER: "openai"
       - REFLECTION_LLM_MODEL: "gpt-5.5"
       - DISCOVERY_LLM_PROVIDER: "openai"
       - DISCOVERY_LLM_MODEL: "gpt-5.5"
-      - PAPER_GEN_LLM_PROVIDER: "openai"
-      - PAPER_GEN_LLM_MODEL: "gpt-5.5"
-      - CLARIFICATION_LLM_PROVIDER: "openai"
-      - CLARIFICATION_LLM_MODEL: "gpt-5.5"
       - SEARXNG_URL: "https://aubrai-searxng-production.up.railway.app"
       # bioagent_v2 private-mode routes. Standard mode can continue to use
       # AUBRAI_SUPABASE_*; private routes write encrypted payloads to
@@ -153,8 +142,6 @@ containers:
       - AWS_ACCESS_KEY_ID
       - AWS_SECRET_ACCESS_KEY
       - AWS_REGION
-      - S3_BUCKET
-      - S3_ENDPOINT               # Optional: non-AWS S3 endpoint
 
       # HPKE key pair — private is sealed, public is the attestation anchor
       - HPKE_PRIVATE_KEY
@@ -210,12 +197,9 @@ containers:
       - LITERATURE_AGENT_STATUS_POLL_TIMEOUT_SECONDS: "5"
       - SENTRY_DSN: "https://929bbce961b77486a72a2528448b9d7f@o4511338800021504.ingest.de.sentry.io/4511393586217040"
       - CHARACTER_FILE: "characters/aubrai.json"
-      - STORAGE_PROVIDER: "s3"
       - DATA_DIR: "/tmp/aubrai-data"
       - EMBEDDING_PROVIDER: "tinfoil"
       - TEXT_EMBEDDING_MODEL: "nomic-embed-text"
-      - USE_RERANKING: "true"
-      - MAX_AUTO_ITERATIONS: "5"
       - DEEP_RESEARCH_SESSION_MAX_DURATION_MS: "14400000"
       - DEEP_RESEARCH_CHECKPOINT_ENABLED: "true"
       - ENABLE_LLM_FALLBACK: "false"
@@ -234,24 +218,16 @@ containers:
       - REPLY_LLM_MODEL: "gpt-5.5"
       - HYPOTHESIS_LLM_PROVIDER: "openai"
       - HYPOTHESIS_LLM_MODEL: "gpt-5.5"
-      - HYP_LLM_PROVIDER: "openai"
-      - HYP_LLM_MODEL: "gpt-5.5"
       - PLANNING_LLM_PROVIDER: "openai"
       - PLANNING_LLM_MODEL: "gpt-5.5"
       - SUBAGENT_LLM_PROVIDER: "openai"
       - SUBAGENT_LLM_MODEL: "gpt-5.5"
       - DEEP_RESEARCH_ORCHESTRATOR_PROVIDER: "openai"
       - DEEP_RESEARCH_ORCHESTRATOR_MODEL: "gpt-5.5"
-      - CONTINUE_RESEARCH_LLM_PROVIDER: "openai"
-      - CONTINUE_RESEARCH_LLM_MODEL: "gpt-5.5"
       - REFLECTION_LLM_PROVIDER: "openai"
       - REFLECTION_LLM_MODEL: "gpt-5.5"
       - DISCOVERY_LLM_PROVIDER: "openai"
       - DISCOVERY_LLM_MODEL: "gpt-5.5"
-      - PAPER_GEN_LLM_PROVIDER: "openai"
-      - PAPER_GEN_LLM_MODEL: "gpt-5.5"
-      - CLARIFICATION_LLM_PROVIDER: "openai"
-      - CLARIFICATION_LLM_MODEL: "gpt-5.5"
       - SEARXNG_URL: "https://aubrai-searxng-production.up.railway.app"
       - PRIVATE_CHAT_LLM_PROVIDER: "redpill-phala"
       - PRIVATE_CHAT_LLM_MODEL: "phala/qwen3.6-35b-a3b"
@@ -289,8 +265,6 @@ containers:
       - AWS_ACCESS_KEY_ID
       - AWS_SECRET_ACCESS_KEY
       - AWS_REGION
-      - S3_BUCKET
-      - S3_ENDPOINT
       - HPKE_PRIVATE_KEY
       - HPKE_PUBLIC_KEY
       - OPENSCHOLAR_API_URL
@@ -312,7 +286,6 @@ containers:
     env:
       - PORT: "8000"
       - REDIS_URL: "redis://localhost:6379"
-      - PAPER_SEARCH_MCP_SEARXNG_URL: "https://aubrai-searxng-production.up.railway.app"
       - SEARXNG_URL: "https://aubrai-searxng-production.up.railway.app"
       - LITERATURE_AGENT_LLM_PROVIDER: "cerebras"
       - LITERATURE_AGENT_LLM_MODEL: "gemma-4-31b"
