@@ -58,6 +58,7 @@ containers:
       # Fast chat is standard/non-private. Private and deep roles stay on Tinfoil.
       - FAST_CHAT_LLM_PROVIDER: "cerebras"
       - EXA_ENABLED: "true"
+      - LITERATURE_ENGINE: "exa"
       - FAST_CHAT_LLM_MODEL: "gemma-4-31b"
       - FAST_CHAT_HYDE_PROVIDER: "cerebras"
       - FAST_CHAT_HYDE_MODEL: "gemma-4-31b"
@@ -202,6 +203,7 @@ containers:
       - DEEP_RESEARCH_CHECKPOINT_ENABLED: "true"
       - FAST_CHAT_LLM_PROVIDER: "cerebras"
       - EXA_ENABLED: "true"
+      - LITERATURE_ENGINE: "exa"
       - FAST_CHAT_LLM_MODEL: "gemma-4-31b"
       - FAST_CHAT_HYDE_PROVIDER: "cerebras"
       - FAST_CHAT_HYDE_MODEL: "gemma-4-31b"
