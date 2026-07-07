@@ -9,8 +9,8 @@
 #   Tinfoil detects the new tag and deploys automatically.
 
 cvm-version: 0.7.5
-cpus: 8
-memory: 65536  # 64 GB — needed for dual Aubrai image pulls during relaunch
+cpus: 2
+memory: 16384  # aligned with tinfoil-config.yml (Tinfoil deploys from that file)
 
 containers:
   - name: aubrai
@@ -343,14 +343,10 @@ containers:
       - AUBRAI_SENTRY_DSN
       - NVIDIA_API_KEY
       - LITERATURE_AGENT_API_KEY
-      - NEBIUS_API_KEY
       - CEREBRAS_API_KEY
       - EXA_API_KEY
-      - OPENROUTER_API_KEY
       - ZILLIZ_URI
       - ZILLIZ_TOKEN
-      - PAPERCLIP_API_KEY
-      - CORE_API_KEY
 
   - name: redis
     image: "docker.io/redis:7-alpine@sha256:4bfd9eca23339865dc14fe75f6d9ae643f714924623978dd2798f1a673b08f43"
