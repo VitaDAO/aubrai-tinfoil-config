@@ -289,7 +289,7 @@ containers:
       - NEBIUS_BASE_URL: "https://api.tokenfactory.nebius.com/v1"
       - LITERATURE_RERANK_PROVIDER: "openrouter-rerank"
       - LITERATURE_AGENT_RETRIEVAL_PROFILE: "default"
-      - LITERATURE_HYDE_ENABLED: "false"
+      - LITERATURE_HYDE_ENABLED: "true"
       - LITERATURE_LITQA_RECALL_MAX_QUERIES: "16"
       - LITERATURE_LITQA_RERANK_WINDOW: "400"
       - LITERATURE_LITQA_RERANK_FUSION: "replace"
