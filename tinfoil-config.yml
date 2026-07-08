@@ -100,9 +100,6 @@ containers:
       - PRIVATE_LITERATURE_ENABLED: "true"
       - PRIVATE_MODE_ALLOW_EXTERNAL_TOOLS: "false"
       - PRIVATE_MODE_REQUIRE_ENCRYPTED_STORAGE: "true"
-      # TEMP DEBUG — remove once the citation-compliance investigation
-      # (private-chat.ts __debugCitation) is resolved.
-      - PRIVATE_CHAT_DEBUG_RAW_REPLY: "1"
       # HPKE public key — attestation anchor so vita app can encrypt to this enclave
       - HPKE_PUBLIC_KEY: "pBbUKMAOC20RbFqfbqNcmqUwb8TGUbpxw4jS4OOj+QY="
 
@@ -237,9 +234,6 @@ containers:
       - PRIVATE_LITERATURE_ENABLED: "true"
       - PRIVATE_MODE_ALLOW_EXTERNAL_TOOLS: "false"
       - PRIVATE_MODE_REQUIRE_ENCRYPTED_STORAGE: "true"
-      # TEMP DEBUG — remove once the citation-compliance investigation
-      # (private-chat.ts __debugCitation) is resolved.
-      - PRIVATE_CHAT_DEBUG_RAW_REPLY: "1"
       - HPKE_PUBLIC_KEY: "pBbUKMAOC20RbFqfbqNcmqUwb8TGUbpxw4jS4OOj+QY="
 
     secrets:
