@@ -16,7 +16,7 @@ containers:
   - name: aubrai
     # Image digest is pinned by CI (tinfoil-build.yml).
     # DO NOT edit this line manually — updated automatically on each deploy.
-    image: "ghcr.io/vitadao/aubrai-server:tinfoil-v2026.08.25.0130@sha256:859d4472e2e631136306432342765cd57a4d9a86b8a976a72a742a24ab1c4ee7"
+    image: "ghcr.io/vitadao/aubrai-server:tinfoil-v2026.08.25.0823@sha256:0de1b8fde0dd9bef1bd4999431a2c6d1daee2d83c58c96dc1651655e57259b86"
     registry:
       username: DobrinAlexandru
       password_secret: GHCR_TOKEN
@@ -31,7 +31,7 @@ containers:
       - DB_BACKEND: "supabase"
       - ALLOWED_ORIGINS: "https://staging.aubr.ai,https://chat.aubr.ai"
       - SENTRY_ENVIRONMENT: "production"
-      - SENTRY_RELEASE: "v2026.06.09.1108"
+      - SENTRY_RELEASE: "v2026.08.25.0823"
       - SENTRY_TRACES_SAMPLE_RATE: "0.05"
       - SENTRY_SMOKE_ENABLED: "true"
       - USE_JOB_QUEUE: "true"
@@ -179,7 +179,7 @@ containers:
       - ZILLIZ_TOKEN
 
   - name: worker
-    image: "ghcr.io/vitadao/aubrai-server:tinfoil-v2026.08.25.0130@sha256:859d4472e2e631136306432342765cd57a4d9a86b8a976a72a742a24ab1c4ee7"
+    image: "ghcr.io/vitadao/aubrai-server:tinfoil-v2026.08.25.0823@sha256:0de1b8fde0dd9bef1bd4999431a2c6d1daee2d83c58c96dc1651655e57259b86"
     registry:
       username: DobrinAlexandru
       password_secret: GHCR_TOKEN
@@ -205,7 +205,7 @@ containers:
       - DB_BACKEND: "supabase"
       - ALLOWED_ORIGINS: "https://staging.aubr.ai,https://chat.aubr.ai"
       - SENTRY_ENVIRONMENT: "production"
-      - SENTRY_RELEASE: "v2026.06.09.1108"
+      - SENTRY_RELEASE: "v2026.08.25.0823"
       - SENTRY_TRACES_SAMPLE_RATE: "0.05"
       - USE_JOB_QUEUE: "true"
       - REDIS_URL: "redis://localhost:6379"
@@ -311,7 +311,7 @@ containers:
       - AUBRAI_SENTRY_DSN
 
   - name: literature-agent
-    image: "ghcr.io/vitadao/aubrai-server:tinfoil-v2026.08.25.0130@sha256:859d4472e2e631136306432342765cd57a4d9a86b8a976a72a742a24ab1c4ee7"
+    image: "ghcr.io/vitadao/aubrai-server:tinfoil-v2026.08.25.0823@sha256:0de1b8fde0dd9bef1bd4999431a2c6d1daee2d83c58c96dc1651655e57259b86"
     registry:
       username: DobrinAlexandru
       password_secret: GHCR_TOKEN
@@ -371,7 +371,7 @@ containers:
       - CORPUS_RUNTIME_INGEST_MAX_FIGS: "0"
       - CORPUS_RUNTIME_INGEST_MAX_TABLES: "0"
       - SENTRY_ENVIRONMENT: "production"
-      - SENTRY_RELEASE: "v2026.06.09.1108"
+      - SENTRY_RELEASE: "v2026.08.25.0823"
       - SENTRY_TRACES_SAMPLE_RATE: "0.05"
     secrets:
       - JINA_API_KEY
