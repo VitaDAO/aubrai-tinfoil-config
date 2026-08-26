@@ -1,6 +1,9 @@
 name: Build & Attest Tinfoil Image
 
 on:
+  # Operator recovery path when a cross-repository bot push does not emit the
+  # tag event. Repository write access is still required to dispatch the job.
+  workflow_dispatch:
   push:
     tags:
       - 'v*.*.*'
