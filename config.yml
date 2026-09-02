@@ -107,7 +107,16 @@ containers:
       - REFLECTION_LLM_MODEL: "gpt-5.5"
       - DISCOVERY_LLM_PROVIDER: "openai"
       - DISCOVERY_LLM_MODEL: "gpt-5.5"
-      - SEARXNG_URL: "http://localhost:8080"
+      # Generic web search uses the authenticated SearXNG service. Literature
+      # retrieval remains on Firecrawl via LITERATURE_RETRIEVAL_PROVIDER above.
+      - WEB_RETRIEVAL_PROVIDER: "searxng"
+      - SEARXNG_URL: "https://searxng-production-c545.up.railway.app"
+      - SEARXNG_ENGINES: "bing"
+      - SEARXNG_TIMEOUT_MS: "8000"
+      - SEARXNG_RETRY_ATTEMPTS: "2"
+      - SEARXNG_RETRY_DELAY_MS: "150"
+      - SEARXNG_LANGUAGE: "en"
+      - FAST_CHAT_WEB_PLANNER_TIMEOUT_MS: "1200"
       # bioagent_v2 private-mode routes. Standard mode can continue to use
       # AUBRAI_SUPABASE_*; private routes write encrypted payloads to
       # AUBRAI_PRIVACY_SUPABASE_*.
@@ -140,6 +149,7 @@ containers:
       - SAMBANOVA_API_KEY
       - CEREBRAS_API_KEY
       - FIRECRAWL_API_KEY
+      - SEARXNG_PROXY_TOKEN
       - EXA_API_KEY
       - GOOGLE_API_KEY
       - OPENAI_API_KEY
@@ -272,7 +282,15 @@ containers:
       - REFLECTION_LLM_MODEL: "gpt-5.5"
       - DISCOVERY_LLM_PROVIDER: "openai"
       - DISCOVERY_LLM_MODEL: "gpt-5.5"
-      - SEARXNG_URL: "http://localhost:8080"
+      # Keep worker generic-web routing aligned with the API container.
+      - WEB_RETRIEVAL_PROVIDER: "searxng"
+      - SEARXNG_URL: "https://searxng-production-c545.up.railway.app"
+      - SEARXNG_ENGINES: "bing"
+      - SEARXNG_TIMEOUT_MS: "8000"
+      - SEARXNG_RETRY_ATTEMPTS: "2"
+      - SEARXNG_RETRY_DELAY_MS: "150"
+      - SEARXNG_LANGUAGE: "en"
+      - FAST_CHAT_WEB_PLANNER_TIMEOUT_MS: "1200"
       - PRIVATE_CHAT_LLM_PROVIDER: "tinfoil"
       - PRIVATE_CHAT_LLM_MODEL: "gemma4-31b"
       - PRIVATE_RESEARCH_LLM_PROVIDER: "tinfoil"
@@ -291,6 +309,7 @@ containers:
       - SAMBANOVA_API_KEY
       - CEREBRAS_API_KEY
       - FIRECRAWL_API_KEY
+      - SEARXNG_PROXY_TOKEN
       - EXA_API_KEY
       - GOOGLE_API_KEY
       - OPENAI_API_KEY
